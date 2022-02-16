@@ -1,11 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GlobalStyle from "./styles/global";
 
 export default function App(){
   return(
     <>
-      <p>Teste</p>
+      Test
+      <GlobalStyle/>
     </>
   )
 }
