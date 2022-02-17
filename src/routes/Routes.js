@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/homePage/HomePage";
 import SplashScreenPage from "../pages/loginPage/splashScreenPage/SplashScreenPage";
@@ -7,11 +8,9 @@ import BasicRegisterPage from "../pages/registerPage/basicRegisterPage/BasicRegi
 import RestaurantsPage from "../pages/restaurantsPage/RestaurantsPage";
 import SearchPage from "../pages/searchPage/SearchPage";
 import ShoppingCartPage from "../pages/shoppingCartPage/ShoppingCartPage";
-import GlobalStyle from "./styles/global";
+import GlobalStyle from "../styles/global";
 
-
-
-export default function Routes(){
+export default function MainRoutes(){
     return(
         <BrowserRouter>
             <Routes>
@@ -23,8 +22,8 @@ export default function Routes(){
                 <Route path="/Restaurants" element={<RestaurantsPage/>}/>
                 <Route path="/Search" element={<SearchPage/>}/>
                 <Route path="/ShoppingCart" element={<ShoppingCartPage/>}/>
-                <GlobalStyle/>
             </Routes>
+            <GlobalStyle/>
         </BrowserRouter>
     )
 }
