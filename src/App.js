@@ -1,12 +1,11 @@
-import React from 'react';
-import GlobalStyle from "./styles/global";
+import React from "react";
+import MainRoutes from "./routes/Routes";
 
 
 export default function App(){
   return(
-    <>
-      <GlobalStyle/>
-
-    </>
+    <div>
+      <MainRoutes/>
+    </div>
   )
 }
