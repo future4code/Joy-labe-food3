@@ -1,5 +1,5 @@
 import React from "react";
-import MainRoutes from "./routes/routes";
+import MainRoutes from "./routes/Routes";
 
 export default function App(){
   return(
