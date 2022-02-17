@@ -1,7 +1,5 @@
-import styled, { CardRestaurant, MainContainer, Title, ContainerCards } from "./styles";
-import React from "react";
+import { CardRestaurant, MainContainer, Title, ContainerCards } from "./styles";
 import { CardComponent } from "./CardComponent";
-
 
 export default function HomePage(props) {
     return (

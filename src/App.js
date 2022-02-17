@@ -1,12 +1,10 @@
 import React from "react";
-import HomePage from "./pages/homePage/HomePage";
-import GlobalStyle from "./styles/global";
+import MainRoutes from "./routes/Routes";
 
 export default function App(){
   return(
-    <>
-      <HomePage/>
-      <GlobalStyle/>
-    </>
+    <div>
+      <MainRoutes/>
+    </div>
   )
 }
