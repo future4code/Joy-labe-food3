@@ -1,3 +1,4 @@
+import React from "react";
 import { CardRestaurant, MainContainer, Title, ContainerCards } from "./styles";
 import { CardComponent } from "./CardComponent";
 
