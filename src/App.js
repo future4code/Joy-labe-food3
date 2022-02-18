@@ -1,10 +1,12 @@
 import React from "react";
 import MainRoutes from "./routes/Routes";
+import {GlobalState} from "./global/GlobalState"
+
 
 export default function App(){
   return(
-    <div>
+    <GlobalState>
       <MainRoutes/>
-    </div>
+    </GlobalState>
   )
 }
