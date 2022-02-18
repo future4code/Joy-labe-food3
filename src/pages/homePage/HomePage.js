@@ -1,32 +1,35 @@
-import React from "react";
-import { CardRestaurant, MainContainer, Title, ContainerCards } from "./styles";
+import React, { useContext } from "react";
+import { MainContainer, ContainerCards } from "./styles";
 import { CardComponent } from "./CardComponent";
+import GlobalStateContext from "../../global/GlobalStateContext";
+import Header from "../../components/header/Header";
+import { Container } from "../restaurantsPage/styles";
 
 export default function HomePage(props) {
-    return (
-        <MainContainer>
-            <Title>SnackTime</Title>
-            <hr/>
-            <ContainerCards>
-                <CardComponent
-                source='https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg'
-                placeName={'Mc Donalds'}
-                deliveryTime='50-60 mins'
-                deliveyValue='Frete R$ 6,00'
-                />
-               <CardComponent
-                source='https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg'
-                placeName={'Mc Donalds'}
-                deliveryTime='50-60 mins'
-                deliveyValue='Frete R$ 6,00'
-                /><CardComponent
-                source='https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg'
-                placeName={'Mc Donalds'}
-                deliveryTime='50-60 mins'
-                deliveyValue='Frete R$ 6,00'
-                />
-            </ContainerCards>
+    const { states} = useContext(GlobalStateContext);
+    const { restaurantes } = states;
 
+    const listRestaurant = restaurantes && restaurantes.map((restaurant) => {
+        return (
+            <CardComponent
+                key={restaurant.id}
+                image={restaurant.products[4].photoUrl}
+                placeName={restaurant.name}
+                deliveryTime={restaurant.deliveryTime}
+                deliveyValue={restaurant.shipping}
+                />
+        )
+    })
+
+    return (
+      <MainContainer>
+        <Header
+        pageName={"SnackTime"}
+    />
+            <hr/>
+           <Container>
+            {listRestaurant}
+            </Container>
         </MainContainer>
     )
 };
