@@ -1,19 +1,14 @@
-import { Card, CardMedia, makeStyles, Typography } from '@material-ui/core'
+import { Card, CardMedia, Typography } from '@material-ui/core'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Info, ContainerCards, ContainerContent } from './styles'
 
-const useStyles = makeStyles({
-  root: {
-    border: '1px',
-  }
-})
 
 export const CardComponent = (props) => {
-const classes = useStyles()
+
   return (
     <ContainerCards>
-      <Card fullwidth variant="outlined">
+      <Card variant="outlined">
         <Link to={`/Restaurants/${props.pathName}`}>
           <CardMedia
             component={'img'}

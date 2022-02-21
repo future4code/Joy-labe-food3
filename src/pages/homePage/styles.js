@@ -11,8 +11,10 @@ align-items: center;
 `
 
 export const ContainerCards = styled(Card)`
-width: 90%;
-margin: 10px;
+width: 100%;
+margin-top: 10px;
+background-color: red;
+
 `
 
 export const ContainerContent = styled.div ` 
