@@ -6,6 +6,8 @@ import Header from "../../components/header/Header";
 import { Container } from "../restaurantsPage/styles";
 import {Footer} from "../../components/footer/Footer"
 import { Input, TextField } from "@material-ui/core";
+import { CategoryBar } from "../../components/category/CategoryBar";
+import { ContainerCategory } from "../../components/category/styles";
 
 export default function HomePage(props) {
     const { states} = useContext(GlobalStateContext);
@@ -28,24 +30,28 @@ export default function HomePage(props) {
             />
             )
         })
-    // const filteredRestaurant = useMemo(() => {
 
-    //     if(!search)
-    //     return listRestaurant
+    const filteredRestaurant = useMemo(() => {
+        if(!search) return listRestaurant;
 
-    //     return listRestaurant.filter( restaurantItem => {
-    //         return restaurantItem.name.toLowerCase().includes( search.toLowerCase() )
-    //     })
-    // }, [search, listRestaurant])
+        return listRestaurant.filter( restaurantItem => {
+            return restaurantItem.props.placeName.toLowerCase().includes( search.toLowerCase() )
+        })
+    }, [search, listRestaurant])
 
-    
+    const listCategory = restaurantes && restaurantes.map((restaurant) => {
+        return (
+            <CategoryBar
+            key={restaurant.id}
+            category={restaurant.category}
+            />
+        )
+    })
+    // .filter((produto) => { 
 
-    // const filtered = !search ? listRestaurant : listRestaurant.filter((restaurant) => {
-    //     return restaurant.name.toLowerCase().includes(search.toLowerCase())
-    // }
-    // )
-    
-        
+    //     return props.classificacaoCategoria === "Todas as categorias" || produto.categoria.includes(props.classificacaoCategoria) // }) 
+    // <Box component="div" sx={{ overflow: 'hidden' }}> Estouro oculto </Box> <Box component="div" sx={{ overflow: 'visible' }}> Estouro visível </Box> >
+
     return (
       <MainContainer>
         <Header
@@ -57,7 +63,12 @@ export default function HomePage(props) {
           <form>
           <TextField value={search} onChange={handleSearch} label="Restaurante" variant="outlined" fullWidth/>
           </form>
-            {listRestaurant}
+          <ContainerCategory>
+          {listCategory}
+          </ContainerCategory>
+          
+
+            {filteredRestaurant}
             </Container>
             <Footer/>
         </MainContainer>
