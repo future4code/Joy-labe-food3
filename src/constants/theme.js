@@ -8,8 +8,6 @@ export const theme = createTheme({
       contrastText: "black"
     },
     text: {
-      primary: blackColor
+      primary: blackColor,
     }
-  }
-
-});
+}});

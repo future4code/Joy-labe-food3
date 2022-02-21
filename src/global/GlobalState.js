@@ -37,23 +37,6 @@ export const GlobalState = (props) => {
     }
     console.log(restaurantes);
 
-    // const getDetailsRestaurants = (id) => {
-    //     axios
-    //     .get(`${base_URL}restaurants/${id}`, {
-    //         headers: {
-    //             auth: auth
-    //         }
-    //     })
-    //     .then((res) => {
-    //         setRestaurantDetail(res.data)
-    //     })
-    //     .catch((err) => { 
-    //         console.log(err)
-    //     })
-    // }
-    //     console.log(restaurantes);
-    //     console.log(getDetailsRestaurants(1));
-
     useEffect(() => {
         if (!restaurantes.length) {
             getRestaurants()
