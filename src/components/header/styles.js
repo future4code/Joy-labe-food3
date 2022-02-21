@@ -8,7 +8,6 @@ export const HeaderContainer = styled.header`
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, 25%);
     width: 100%;
-
     p {
         margin-right: 140px;
         font-weight: bold; 
