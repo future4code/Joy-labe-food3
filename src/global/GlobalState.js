@@ -15,21 +15,21 @@ export const GlobalState = (props) => {
         setRestaurantes
     }
 
-    const getRestaurante = () => {
-        const auth ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJjQXBxSzVCY3ZlVWxodzNBdWhhIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldnRlc3RlQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTExLjExMS4yMjItMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXp6eiwgMTc3OCwgNzExIC0gVmlsYSBOLiBDb25jZWnDp8Ojb28iLCJpYXQiOjE2NDUxMTgwODN9.J2c7hQS-Al-e7aEwm4gmpFXm1tf10EvNIsEhYuW-2pI"
-        axios
-        .get(`${base_URL}restaurants`, {
-            headers: {
-                auth: auth
-            }
-        })
-        .then((res) => console.log(res.data.restaurants))
-        .catch((err) => console.log(err.data))
-    }
+    // const getRestaurante = () => {
+    //     const auth ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJjQXBxSzVCY3ZlVWxodzNBdWhhIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldnRlc3RlQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTExLjExMS4yMjItMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXp6eiwgMTc3OCwgNzExIC0gVmlsYSBOLiBDb25jZWnDp8Ojb28iLCJpYXQiOjE2NDUxMTgwODN9.J2c7hQS-Al-e7aEwm4gmpFXm1tf10EvNIsEhYuW-2pI"
+    //     axios
+    //     .get(`${base_URL}restaurants`, {
+    //         headers: {
+    //             auth: auth
+    //         }
+    //     })
+    //     .then((res) => console.log(res.data.restaurants))
+    //     .catch((err) => console.log(err.data))
+    // }
 
-    useEffect (() => {
-        getRestaurante()
-    }, [])
+    // useEffect (() => {
+    //     getRestaurante()
+    // }, [])
 
     return (
         <GlobalStateContext.Provider value={{ states, setters }}>
