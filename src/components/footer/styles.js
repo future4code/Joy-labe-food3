@@ -9,6 +9,7 @@ export const ContainerFooter = styled.footer `
     position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: white;
 `
 export const ItemMenu = styled.div `
     width: 100px;
