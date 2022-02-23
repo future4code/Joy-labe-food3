@@ -12,18 +12,43 @@ export default function LoginPage(){
             
             
             <ContainerForm>
+            <form onSubmit={}>
+               
             <FormControl>
                 <InputLabel htmlFor="InputEmail">Email</InputLabel>
-            <Input id="InputEmail" variant="outlined" />
+            <Input
+             
+             id="InputEmail" 
+             variant="outlined" 
+             name={}
+             value={}
+             onChange={}
+             required
+             type={"email"}
+
+             />
+
             </FormControl>
             
             <FormControl>
                 <InputLabel htmlFor="InputSenha">Senha</InputLabel>
-            <Input id="InputSenha" variant="outlined" />
+            <Input 
+            
+            id="InputSenha" 
+            variant="outlined" 
+            name={}
+            value={}
+            onChange={}
+            required
+            type={"senha"}
+            
+            />
+
             </FormControl>
             
             <Button color="#green" variant="contained">Entrar</Button>
             
+            </form>
             
             </ContainerForm>
             
