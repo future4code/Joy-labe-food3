@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { MainContainer, ContainerCards } from "./styles";
 import { CardComponent } from "./CardComponent";
 import GlobalStateContext from "../../global/GlobalStateContext";
@@ -11,33 +11,43 @@ import { ContainerCategory } from "../../components/category/styles";
 import axios from "axios";
 import { base_URL } from "../../constants/URL"
 
-export default function HomePage(props) {
-    const [search, setSearch] = useState("")
-    const [restaurantes, setRestaurantes] = useState([])
-    const [selectedCategory, setSelectedCategoria] = useState('')
-    const [categorias, setCategorias] = useState([])
-    const [filteredRestaurantes, setFilteredRestaurantes] = useState([])
+export default function HomePage(props) { // declarando variaveis de estado 
+    const [search, setSearch] = useState("") //cria-se um estado chamado setSeacrh  que salva os dados da entrada de pesquisa em cada ocorrência do changeevento. 
+    const [restaurantes, setRestaurantes] = useState([])  // criou a variavel que vai receber uma lista e guardar no estado
+    const [selectedCategory, setSelectedCategoria] = useState('') //categorias selecionadas
+    const [categorias, setCategorias] = useState([]) // opções das categorias
+    const [filteredRestaurantes, setFilteredRestaurantes] = useState([]) // restaurante filtrados seja pelo texto ou categoria
 
+
+//    método   recebe uma string como argumento e filtra os restaurantes 
     const handleSearch = (e) => {
-        const textFilter = e.target.value
+        const textFilter = e.target.value // fez isso para evitar chamar e.target.value multiplas vezes
         setSearch(textFilter)
-        if(!textFilter) return setFilteredRestaurantes(restaurantes);
-
+        if(!textFilter)  return setFilteredRestaurantes(restaurantes);
+        
         const filteredList = restaurantes.filter( restaurantItem => {
             return restaurantItem.name.toLowerCase().includes( textFilter.toLowerCase() )
+          
         })
+       
+     
         setFilteredRestaurantes(filteredList)
     }
 
     const handleSearchCategory = (categoryName) => {
         setSelectedCategoria(categoryName)
         if(categoryName === selectedCategory) return setFilteredRestaurantes(restaurantes);
-
+   
         const filteredList = restaurantes.filter( restaurantItem => {
             return restaurantItem.category.toLowerCase().includes( categoryName.toLowerCase() )
         })
         setFilteredRestaurantes(filteredList)
     }
+
+
+
+
+    
     
         const getRestaurants = () => {
             const auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJjQXBxSzVCY3ZlVWxodzNBdWhhIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldnRlc3RlQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTExLjExMS4yMjItMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXp6eiwgMTc3OCwgNzExIC0gVmlsYSBOLiBDb25jZWnDp8Ojb28iLCJpYXQiOjE2NDUxMTgwODN9.J2c7hQS-Al-e7aEwm4gmpFXm1tf10EvNIsEhYuW-2pI"
@@ -93,6 +103,11 @@ export default function HomePage(props) {
           </ContainerCategory>
           
 
+          {filteredRestaurantes.length === 0 && (
+                <p>Nenhum restaurante encontrado</p>
+                )
+            }
+            
           {filteredRestaurantes.map((restaurant) => {
             return (
                 <CardComponent
