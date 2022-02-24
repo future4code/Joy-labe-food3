@@ -52,7 +52,7 @@ export const GlobalState = (props) => {
         setRestaurantes,
         setRestaurantDetail
     }
-
+// redux
     return (
         <GlobalStateContext.Provider value={{ states, setters }}>
             {props.children}

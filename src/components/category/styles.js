@@ -10,8 +10,8 @@ overflow-x: scroll;
 height: 50px;
 
 `
-export const ItemCategory = styled.div `
-
+export const ItemCategory = styled.div`
+${props => props.selected && 'color: red;'}
 margin: 5px;
 display: flex;
 margin-right: 40px;

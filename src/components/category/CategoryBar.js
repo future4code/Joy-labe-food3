@@ -4,7 +4,7 @@ import { ContainerCategory, ItemCategory } from './styles'
 export const CategoryBar = (props) => {
   return (
     <div>
-      <ItemCategory> {props.category}</ItemCategory>
+      <ItemCategory selected={props.selected} onClick={props.action}> {props.category}</ItemCategory>
     </div>
 
   )
