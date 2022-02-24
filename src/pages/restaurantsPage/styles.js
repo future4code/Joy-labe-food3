@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React from "react";
 
 export const Main = styled.div`
     display: flex;
@@ -13,10 +12,37 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
+    .greenTitle {
+        color: rgba(92, 182, 70, 70%);
+    }
+
 
     h3 {
         margin-top: 2vh;
         border-bottom: 1px solid black;
+    }
+`
+export const RestaurantInfo = styled.div`
+    
+    color: rgba(0, 0, 0, 25%);
+    
+    img {
+        width: 100%;
+        height: 20vh;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: 10px;
+    }
+
+    div {
+        display: flex;
+        
+        .space{
+            margin-left: 15px;
+        }
+    }
+
+    p {
+        margin-top: 10px;
     }
 `
 export const Card = styled.div`
@@ -24,40 +50,54 @@ export const Card = styled.div`
     border: 1px solid rgba(0, 0, 0, 25%);
     border-radius: 8px;
     margin-top: 1vh;
-    height: 15vh;
+    height: 17vh;
+    width: 100%;
+
+    img {
+        height: 100%;
+        width: 100%;
+        border-radius: 9px 0px 0px 10px;
+    }
 `
 export const InfoCard = styled.div`
     display: flex;
     flex-direction: column;
     padding: 14px 14px 14px 14px;
-
-
-    .greenTitle {
-        color: rgba(92, 182, 70, 70%);
-    }
+    width: 70%;
+    border-radius: 20px;
 
     p {
         margin-top: 5px;
-        font-size: 13px;
+        font-size: 12px;
         color: rgba(0, 0, 0, 25%);
+    }
+
+    h2 {
+        font-size: 14.5px;
     }
 `
 export const Price = styled.div`
     display: flex;
-    margin-top: 15px;
+    margin-top: 30px;
+    justify-content: space-between;
+    width: 107%;
 
-    h4 {
-        margin-right: 129px;
+    h6 {
+        margin-top: 6px;
     }
 
     button {
-        align-self: flex-end;
-        border: 1px solid green;
-        color: green;
-        height: 4.3vh;
-        width: 25vw;
-        background-color: rgba(255, 255, 255, 0%);
-        border-radius: 10px 0 10px 0;
+            border: 1px solid green;
+            color: green;
+            height: 30px;
+            width: 90px;
+            background-color: rgba(255, 255, 255, 0%);
+            border-radius: 10px 0 10px 0;
+            align-self: flex-end;
+            margin-left: 92px;
     }
+`
+export const ImageContainer = styled.div`
+    width: 30%;
 `
 
