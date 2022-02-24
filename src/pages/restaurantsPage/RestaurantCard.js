@@ -1,20 +1,21 @@
 import React from 'react'
-import { Card, InfoCard, Price } from './styles'
+import { Card, InfoCard, Price, ImageContainer } from './styles'
 
 export const RestaurantCard = (props) => {
     return (
         <Card>
-            <img src="" alt="foto do lanche" />
+            <ImageContainer>
+                <img src={props.photo} alt="foto do lanche" />
+            </ImageContainer>
             <InfoCard>
-                <h4 className='greenTitle'>Nome do Lanche</h4>
-                <p>desc. do lanche</p>
-                
+                <h2 className='greenTitle'>{props.name}</h2>
+                <p>{props.description}</p>
                 <Price>
-                    <h4>R$00,00</h4>
-                    <button>Adicionar</button>
+                    <h6>R${props.price}0</h6>   
+                    <button className='position'>Adicionar</button> 
                 </Price>
             </InfoCard>
-
+            
         </Card>
     )
 }
