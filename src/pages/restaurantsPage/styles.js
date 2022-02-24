@@ -4,7 +4,6 @@ export const Main = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
 ` 
 export const Container = styled.div`
     margin-top:10vh;
@@ -52,6 +51,7 @@ export const Card = styled.div`
     margin-top: 1vh;
     height: 17vh;
     width: 100%;
+    margin-bottom: 1vh;
 
     img {
         height: 100%;
@@ -62,7 +62,7 @@ export const Card = styled.div`
 export const InfoCard = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 14px 14px 14px 14px;
+    padding: 0px 0px 14px 14px;
     width: 70%;
     border-radius: 20px;
 
@@ -79,12 +79,8 @@ export const InfoCard = styled.div`
 export const Price = styled.div`
     display: flex;
     margin-top: 30px;
-    justify-content: space-between;
-    width: 107%;
-
-    h6 {
-        margin-top: 6px;
-    }
+    justify-content: space-around;
+    width: 100%;
 
     button {
             border: 1px solid green;
@@ -94,9 +90,32 @@ export const Price = styled.div`
             background-color: rgba(255, 255, 255, 0%);
             border-radius: 10px 0 10px 0;
             align-self: flex-end;
-            margin-left: 92px;
+            margin-left: 100px;
+    }
+
+
+`
+export const Quantity = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    h2 {
+        margin-top:15px;
+    }
+
+    button {
+            border: 1px solid green;
+            color: green;
+            height: 30px;
+            width: 30px;
+            background-color: rgba(255, 255, 255, 0%);
+            border-radius: 0px 10px 0px 10px;
+            align-self: flex-start;
+            margin-left: 85px;
     }
 `
+
 export const ImageContainer = styled.div`
     width: 30%;
 `
