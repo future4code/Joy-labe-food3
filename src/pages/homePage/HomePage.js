@@ -56,13 +56,11 @@ export default function HomePage(props) {
 
     const filterCategory = useMemo(() => {
         if (!filter) return filteredRestaurant
-        console.log('to aqui');
         return filteredRestaurant.filter(restaurantItem => {
             return restaurantItem.props.category === filter
         })
     }, [filter, filteredRestaurant])
-    console.log('filter category', filterCategory);
-    console.log();
+    
 
     return (
         <MainContainer>
@@ -75,9 +73,12 @@ export default function HomePage(props) {
                 <form>
                     <TextField value={search} onChange={handleSearch} label="Restaurante" variant="outlined" fullWidth />
                 </form>
-                {listCategory}
+                {/* {listCategory} */}
                 {/* <button onClick={teste}>Fazer pedido</button> */}
-                <Toast/>
+                <Toast 
+                restaurantName={'nome do restaurante'}
+                total={'50,00'}
+                />
                 {filterCategory}
             </Container>
             <Footer />
