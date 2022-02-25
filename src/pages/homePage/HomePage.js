@@ -4,8 +4,8 @@ import { CardComponent } from "./CardComponent";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import Header from "../../components/header/Header";
 import { Container } from "../restaurantsPage/styles";
-import {Footer} from "../../components/footer/Footer"
-import { Input, TextField } from "@material-ui/core";
+import { Footer } from "../../components/footer/Footer"
+import { TextField } from "@material-ui/core";
 import { CategoryBar } from "../../components/category/CategoryBar";
 import { ContainerCategory } from "../../components/category/styles";
 import axios from "axios";
@@ -122,7 +122,7 @@ export default function HomePage(props) { // declarando variaveis de estado
             })
             }
             </Container>
-            <Footer/>
+            <Footer />
         </MainContainer>
     )
-};
+}
