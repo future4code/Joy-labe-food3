@@ -3,12 +3,12 @@ import React from 'react'
 import { ContainerCategory, ItemCategory } from './styles'
 
 export const CategoryBar = (props) => {
-  return(
-    <ContainerCategory>
-          <ItemCategory type="button" onClick={props.setFilter}>
-            {props.category}
-          </ItemCategory>
-    </ContainerCategory>)
+  return (
+    <div>
+      <ItemCategory selected={props.selected} onClick={props.action}> {props.category}</ItemCategory>
+    </div>
+
+  )
 }
 
 
