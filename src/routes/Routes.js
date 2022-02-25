@@ -19,7 +19,7 @@ export default function MainRoutes(){
                 <Route path="/Login" element={<LoginPage/>}/>
                 <Route path="/AdressRegister" element={<AdressRegisterPage/>}/>
                 <Route path="/BasicRegister" element={<BasicRegisterPage/>}/>
-                <Route path="/Restaurants" element={<RestaurantsPage/>}/>
+                <Route path="/Restaurants/:id" element={<RestaurantsPage/>}/>
                 <Route path="/Search" element={<SearchPage/>}/>
                 <Route path="/ShoppingCart" element={<ShoppingCartPage/>}/>
             </Routes>
