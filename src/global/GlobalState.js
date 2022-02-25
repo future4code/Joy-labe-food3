@@ -59,8 +59,3 @@ export const GlobalState = (props) => {
         </GlobalStateContext.Provider>
     )
 }
-
-
-
-//const getRestaurants = useRequestData([], `${base_URL}restaurants`)
-    // const getDetailsRestaurants = useRequestData({}, `${base_URL}restaurants/1`)

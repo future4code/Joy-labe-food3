@@ -5,16 +5,26 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 import Header from "../../components/header/Header";
 import { Container } from "../restaurantsPage/styles";
 import { Footer } from "../../components/footer/Footer"
-import { Input, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { CategoryBar } from "../../components/category/CategoryBar";
 import { ContainerCategory } from "../../components/category/styles";
-import { useRequestData } from "../../hooks/useRequestData";
+import { Toast } from "../../components/toast/Toast"
 
 export default function HomePage(props) {
     const { states } = useContext(GlobalStateContext);
     const { restaurantes } = states;
     const [search, setSearch] = useState("")
-    const [buttons, setButtons] = useState('carregando')
+    const [filter, setFilter] = useState("")
+
+    const listCategory = restaurantes && restaurantes.map((restaurant) => {
+        return (
+            <CategoryBar
+                key={restaurant.id}
+                category={restaurant.category}
+                setFilter={() => setFilter(restaurant.category)}
+            />
+        )
+    })
 
 
     //renderização da lista completa na tela
@@ -27,6 +37,7 @@ export default function HomePage(props) {
                 deliveryTime={restaurant.deliveryTime}
                 deliveyValue={restaurant.shipping}
                 pathName={restaurant.id}
+                category={restaurant.category}
             />
         )
     })
@@ -43,50 +54,34 @@ export default function HomePage(props) {
         })
     }, [search, listRestaurant])
 
-    //FILTRO DE CATEGORIA
+    const filterCategory = useMemo(() => {
+        if (!filter) return filteredRestaurant
+        return filteredRestaurant.filter(restaurantItem => {
+            return restaurantItem.props.category === filter
+        })
+    }, [filter, filteredRestaurant])
+    
 
-    const allCategories = ['Todas', ...(restaurantes && restaurantes.map(item => item.category))]
-    console.log(allCategories);
+    return (
+        <MainContainer>
+            <Header
+                pageName={"SnackTime"}
+            />
+            <hr />
 
-    const filter = (button) => {
-        if (button === 'Todas') return listRestaurant
-        return listRestaurant.filter(item => item.category === button)
-    }
-
-
-//map para mostrar as categorias dos restaurantes
-// const listCategory = restaurantes && restaurantes.map((restaurant) => {
-//     return (
-//         <CategoryBar
-//             key={restaurant.id}
-//             category={restaurant.category}
-//         />
-//     )
-// })
-
-// const handleCategory = () => {
-
-// }
-
-
-return (
-    <MainContainer>
-        <Header
-            pageName={"SnackTime"}
-        />
-        <hr />
-
-        <Container>
-            <form>
-                <TextField value={search} onChange={handleSearch} label="Restaurante" variant="outlined" fullWidth />
-            </form>
-            <ContainerCategory>
-                <CategoryBar button={buttons} filter={filter}/>
-            </ContainerCategory>
-
-            {filteredRestaurant}
-        </Container>
-        <Footer />
-    </MainContainer>
-)
+            <Container>
+                <form>
+                    <TextField value={search} onChange={handleSearch} label="Restaurante" variant="outlined" fullWidth />
+                </form>
+                {/* {listCategory} */}
+                {/* <button onClick={teste}>Fazer pedido</button> */}
+                <Toast 
+                restaurantName={'nome do restaurante'}
+                total={'50,00'}
+                />
+                {filterCategory}
+            </Container>
+            <Footer />
+        </MainContainer>
+    )
 }
