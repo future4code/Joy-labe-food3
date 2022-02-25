@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import * as services from "../../../services/apiRequestAxios";
-import { Container, ContainerForm, ContainerBtn,ContainerSubtitle, Header } from "./styles";
+import { 
+    Container, 
+    ContainerForm, 
+    ContainerBtn, 
+    ContainerSubtitle, 
+    Header, 
+    ContainerFooter
+} from "./styles";
 import logo from "../../../assets/Logo_black.svg";
 import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import { Link } from "react-router-dom";
+
 export default function BasicRegisterPage(){
 
     const [form, setForm] = useState({
@@ -12,13 +24,14 @@ export default function BasicRegisterPage(){
         password: "",
         confirmPassword: ""
     })
+    const [showPassword, setShowPassword] = useState(false);
 
-    const onChange = ({target}) =>{
+    const onChange = ({target}) => {
         const {name, value} = target
         setForm({...form, [name] : value})
     }
 
-    const register = (e) =>{
+    const register = (e) => {
         e.preventDefault()
 
         const {name, email, cpf, password} = form
@@ -33,6 +46,10 @@ export default function BasicRegisterPage(){
         services.request.post(`/signup`, body)
         .then(({data}) => localStorage.setItem("auth", data.token))
         .catch(err => console.log(err.response.data.message)) : console.log("Senhas não correspondem!")
+    }
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword)
     }
     
     return(
@@ -98,7 +115,7 @@ export default function BasicRegisterPage(){
                     name="password"
                     value={form.password}
                     onChange={onChange}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     required
                     id="outlined-full-width"
                     label="Senha"
@@ -112,12 +129,19 @@ export default function BasicRegisterPage(){
                     inputProps={{ pattern: "^.{6,}" }}
                     title="A senha deve ter no mínimo 6 caracteres!"
                     style={{ margin: 8 }}
+                    InputProps = {{
+                        endAdornment:(
+                            <InputAdornment position="end" onClick={handleShowPassword}>
+                                 {showPassword ? <VisibilityIcon cursor="pointer"/> : <VisibilityOffIcon cursor="pointer"/>}   
+                            </InputAdornment>
+                        )
+                    }}
                 />
                 <TextField
                     name="confirmPassword"
                     value={form.confirmPassword}
                     onChange={onChange}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     required
                     id="outlined-full-width"
                     label="Confirmar"
@@ -141,10 +165,21 @@ export default function BasicRegisterPage(){
                         && form.password !== form.confirmPassword 
                         && "Deve ser a mesma que a anterior"
                     }
-                />
+                    InputProps = {{
+                        endAdornment:(
+                            <InputAdornment position="end" onClick={handleShowPassword}>
+                                {showPassword ? <VisibilityIcon cursor="pointer"/> : <VisibilityOffIcon cursor="pointer"/>}   
+                            </InputAdornment>
+                        )
+                    }}
+                    />
                 <ContainerBtn>
                     <button>Criar</button>
                 </ContainerBtn>
+                <ContainerFooter>
+                    <p>Já possui uma conta?</p>
+                    <Link to="/login">Login</Link>
+                </ContainerFooter>
             </ContainerForm>
         </Container>
     )
