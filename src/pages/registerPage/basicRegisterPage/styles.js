@@ -7,9 +7,9 @@ export const Container = styled.div`
     width: 100vw;
     height: 100vh;
 
-    p{
+    /* p{
         font-weight: bold;
-    }
+    } */
 `
 export const ContainerForm = styled.form`
     display: flex;
@@ -43,4 +43,10 @@ export const Header = styled.header`
         width: 100%;
     }
 
+`
+export const ContainerFooter = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 28px 0 0 0;
 `
