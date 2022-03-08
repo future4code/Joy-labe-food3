@@ -19,6 +19,11 @@ export default function RestaurantsPage() {
     //váriavel para pegar o id do restaurante via URL
     const { id } = useParams();
 
+    //map para gerar lista categorias
+    const listCategory = selectedRestaurantProducts && selectedRestaurantProducts.map((product) => {
+        return <p>{product.category}</p>
+    })
+
     //função para pegar os detalhes do restaurante via API
     useEffect(() => {
         const auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJjQXBxSzVCY3ZlVWxodzNBdWhhIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldnRlc3RlQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTExLjExMS4yMjItMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXp6eiwgMTc3OCwgNzExIC0gVmlsYSBOLiBDb25jZWnDp8Ojb28iLCJpYXQiOjE2NDUxMTgwODN9.J2c7hQS-Al-e7aEwm4gmpFXm1tf10EvNIsEhYuW-2pI"
@@ -34,7 +39,6 @@ export default function RestaurantsPage() {
 
     console.log(selectedRestaurantProducts)
     
-
     return(
         <Main>
             <Header
@@ -58,13 +62,40 @@ export default function RestaurantsPage() {
                     }
                 })}
                 
+                {/* tudo que não for bebida e acompanhamento entra aqui :) */}
                 <h3>Principais</h3>
                 {selectedRestaurantProducts && selectedRestaurantProducts.map((product) => {
-                        return <RestaurantCard key={product.id} 
-                                               name={product.name}
-                                               description={product.description}
-                                               photo={product.photoUrl}
-                                               price={product.price}/>
+                        if(product.category !== "Bebida" && product.category !== "Acompanhamento" ) {
+                            return <RestaurantCard key={product.id} 
+                            name={product.name}
+                            description={product.description}
+                            photo={product.photoUrl}
+                            price={product.price}/>
+                        }
+                })}
+
+                {/* tudo que for acompanhamento entra aqui :) */}
+                <h3>Acompanhamentos</h3>
+                {selectedRestaurantProducts && selectedRestaurantProducts.map((product) => {
+                        if(product.category === "Acompanhamento" ) {
+                            return <RestaurantCard key={product.id} 
+                            name={product.name}
+                            description={product.description}
+                            photo={product.photoUrl}
+                            price={product.price}/>
+                        }
+                })}
+
+                {/* tudo que for bebida entra aqui :) */}
+                <h3>Bebidas</h3>
+                {selectedRestaurantProducts && selectedRestaurantProducts.map((product) => {
+                        if(product.category === "Bebida" ) {
+                            return <RestaurantCard key={product.id} 
+                            name={product.name}
+                            description={product.description}
+                            photo={product.photoUrl}
+                            price={product.price}/>
+                        }
                 })}
 
             </Container>
