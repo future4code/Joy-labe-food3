@@ -18,7 +18,6 @@ export default function HomePage(props) { // declarando variaveis de estado
     const [categorias, setCategorias] = useState([]) // opções das categorias
     const [filteredRestaurantes, setFilteredRestaurantes] = useState([]) // restaurante filtrados seja pelo texto ou categoria
 
-
 //    método   recebe uma string como argumento e filtra os restaurantes 
     const handleSearch = (e) => {
         const textFilter = e.target.value // fez isso para evitar chamar e.target.value multiplas vezes
