@@ -14,22 +14,19 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { Link } from "react-router-dom";
+import useForm from "../../../hooks/useForm";
+import { setToken } from "../../../helpers/localStorage";
 
 export default function BasicRegisterPage(){
 
-    const [form, setForm] = useState({
+    const {form, onChange, cleanFields} = useForm({
         name: "",
         email: "",
         cpf: "",
         password: "",
         confirmPassword: ""
-    })
+    });
     const [showPassword, setShowPassword] = useState(false);
-
-    const onChange = ({target}) => {
-        const {name, value} = target
-        setForm({...form, [name] : value})
-    }
 
     const register = (e) => {
         e.preventDefault()
@@ -42,10 +39,13 @@ export default function BasicRegisterPage(){
             password
         }
 
-        form.password === form.confirmPassword ?
-        services.request.post(`/signup`, body)
-        .then(({data}) => localStorage.setItem("auth", data.token))
-        .catch(err => console.log(err.response.data.message)) : console.log("Senhas não correspondem!")
+        form.password === form.confirmPassword &&
+        services.request
+        .post(`/signup`, body)
+        .then(({data}) => setToken(data.token))
+        .catch(err => console.log(err.response.data.message));
+        
+        cleanFields();
     }
 
     const handleShowPassword = () => {
