@@ -5,17 +5,19 @@ import TextField from '@material-ui/core/TextField';
 import Header from "../../../components/header/Header";
 import useForm from "../../../hooks/useForm";
 import { getToken, setToken } from "../../../helpers/localStorage";
+import { useNavigate } from "react-router-dom";
 
 export default function AdressRegisterPage(){
 
-    const {form, onChange, cleanFields} = useForm({
+    const {form, onChange} = useForm({
         street: "",
         number: "",
         neighbourhood: "",
         city: "",
         state: "",
         complement: ""        
-    })
+    });
+    const navigate = useNavigate();
 
     const registerAdress = (e) =>{
         e.preventDefault()
@@ -26,10 +28,11 @@ export default function AdressRegisterPage(){
                 auth : getToken()
             }
         })
-        .then(({data}) => setToken(data.token))
+        .then(({data}) => {
+            setToken(data.token)
+            navigate("/")
+        })
         .catch(err => console.log(err.response.data))
-
-        cleanFields();
     }
 
     return(
