@@ -6,8 +6,7 @@ export const ContainerForm = styled.div`
     justify-content: center;
     flex-direction: column;
     row-gap: 30px;
-    width: 80%;
-    
+    width: 95%;
 
 `
 export const MainContainer = styled.div`
@@ -18,3 +17,16 @@ export const MainContainer = styled.div`
     height: 80vh;
     flex-direction: column;
 `
+export const ContainerBtn = styled.div`
+        width: 70%;
+        height: 3rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #5CB646;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+`
+

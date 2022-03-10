@@ -14,8 +14,8 @@ export default function MainRoutes(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<HomePage/>}/>
-                <Route path="/SplashScreen" element={<SplashScreenPage/>}/>
+            <Route path="/" element={<SplashScreenPage/>}/>
+                <Route path="/HomePage" element={<HomePage/>}/>
                 <Route path="/Login" element={<LoginPage/>}/>
                 <Route path="/AdressRegister" element={<AdressRegisterPage/>}/>
                 <Route path="/BasicRegister" element={<BasicRegisterPage/>}/>
