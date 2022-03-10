@@ -1,7 +1,6 @@
 import React from "react";
-import styled,{ContainerForm, MainContainer,} from "./styles";
+import {ContainerForm, MainContainer, ContainerBtn} from "./styles";
 import Input from '@material-ui/core/Input';
-import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel'
 import useForm from '../../../hooks/useForm'
@@ -9,6 +8,7 @@ import {base_URL} from "../../../constants/URL"
 import axios from "axios"
 import { setToken } from "../../../helpers/localStorage";
 import {Link} from "react-router-dom"
+import { TextField } from "@material-ui/core";
 
 export default function LoginPage(){
     
@@ -40,14 +40,14 @@ export default function LoginPage(){
                
             <FormControl>
                 <InputLabel htmlFor="InputEmail">Email</InputLabel>
-            <Input
+            <TextField
              
              id="InputEmail" 
              variant="outlined" 
              name="email"
              value={form.email}
              onChange={onChange}
-             placeholder={"E-mail"}
+             placeholder={""}
              required
              type="email"
 
@@ -57,27 +57,31 @@ export default function LoginPage(){
             
             <FormControl>
                 <InputLabel htmlFor="InputSenha">Senha</InputLabel>
-            <Input 
+            <TextField
             
             id="InputSenha" 
             variant="outlined" 
             name="password"
             value={form.password}
             onChange={onChange}
-            placeholder={"Senha"}
+            placeholder={""}
             required
             type="senha"
             
             />
 
             </FormControl>
-            
-            <button color="#green" variant="contained">Entrar</button>
-            
+                        
+           
             </form>
             
             </ContainerForm>
-          
+            
+            <ContainerBtn>
+                Entrar
+            </ContainerBtn>
+                        
+
             <Link to="/BasicRegister">
             <p>
             Não possui cadastro? Clique aqui.
