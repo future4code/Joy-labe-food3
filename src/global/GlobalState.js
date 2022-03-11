@@ -9,7 +9,7 @@ export const GlobalState = (props) => {
     const [restaurantes, setRestaurantes] = useState([])
     const [restaurantDetail, setRestaurantDetail] = useState({})
     
-    console.log(restaurantes);
+    // console.log(restaurantes);
     const getRestaurants = () => {
         const auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJjQXBxSzVCY3ZlVWxodzNBdWhhIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldnRlc3RlQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTExLjExMS4yMjItMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXp6eiwgMTc3OCwgNzExIC0gVmlsYSBOLiBDb25jZWnDp8Ojb28iLCJpYXQiOjE2NDUxMTgwODN9.J2c7hQS-Al-e7aEwm4gmpFXm1tf10EvNIsEhYuW-2pI"
         axios
@@ -36,7 +36,7 @@ export const GlobalState = (props) => {
             })
             .catch((err) => console.log(err.data))
     }
-    console.log(restaurantes);
+    // console.log(restaurantes);
 
     useEffect(() => {
         if (!restaurantes.length) {

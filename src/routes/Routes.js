@@ -9,7 +9,7 @@ import RestaurantsPage from "../pages/restaurantsPage/RestaurantsPage";
 import SearchPage from "../pages/searchPage/SearchPage";
 import ShoppingCartPage from "../pages/shoppingCartPage/ShoppingCartPage";
 import GlobalStyle from "../styles/global";
-
+import ProfilePage from "../pages/profile/profilePage/ProfilePage"
 export default function MainRoutes(){
     return(
         <BrowserRouter>
@@ -22,6 +22,10 @@ export default function MainRoutes(){
                 <Route path="/Restaurants/:id" element={<RestaurantsPage/>}/>
                 <Route path="/Search" element={<SearchPage/>}/>
                 <Route path="/ShoppingCart" element={<ShoppingCartPage/>}/>
+                <Route path="/ProfilePage" element={<ProfilePage/>}/>
+                {/* <Route path="/Profile/edit" element={<ProfileEdit/>}/> */}
+                
+
             </Routes>
             <GlobalStyle/>
         </BrowserRouter>

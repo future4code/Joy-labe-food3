@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export const Footer = () => {
   return (
     <ContainerFooter>
-      <Link to="/">
+      <Link to="/HomePage">
         <ItemMenu>
           <HomeOutlinedIcon fontSize='large' />
         </ItemMenu>
@@ -18,9 +18,11 @@ export const Footer = () => {
           <ShoppingCartOutlinedIcon fontSize='large' />
         </ItemMenu>
       </Link>
-      <ItemMenu>
-        <PersonOutlineOutlinedIcon fontSize='large' />
-      </ItemMenu>
+      <Link to="/ProfilePage">
+        <ItemMenu>
+          <PersonOutlineOutlinedIcon fontSize='large' />
+        </ItemMenu>
+      </Link>
     </ContainerFooter>
   )
 }

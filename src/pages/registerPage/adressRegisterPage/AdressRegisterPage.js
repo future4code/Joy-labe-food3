@@ -30,7 +30,7 @@ export default function AdressRegisterPage(){
         })
         .then(({data}) => {
             setToken(data.token)
-            navigate("/")
+            navigate("/HomePage")
         })
         .catch(err => console.log(err.response.data))
     }

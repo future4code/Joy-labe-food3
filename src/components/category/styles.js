@@ -12,7 +12,7 @@ height: 50px;
 
 `
 export const ItemCategory = styled.div`
-${props => props.selected && 'color: red;'}
+${props => props.selected && 'color: green;'}
 margin: 5px;
 display: flex;
 margin-right: 40px;
