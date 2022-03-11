@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "./styles";
-import { ContainerSplash, ContainerTitleSplash } from "./styles";
+import { ContainerSplash, ContainerTitle1Splash, ContainerTitle2Splash } from "./styles";
 
 export default function SplashScreenPage(){
     
      setTimeout (() =>  {
 
-            // <Link to= "/Login">
+           
             window.location.pathname = "/Login"
             }, 15000 )
                 
@@ -16,7 +16,8 @@ export default function SplashScreenPage(){
              
               
             <ContainerSplash>
-            <ContainerTitleSplash>SnackTime</ContainerTitleSplash>
+            <ContainerTitle1Splash>Snack</ContainerTitle1Splash>
+            <ContainerTitle2Splash>Time</ContainerTitle2Splash>
             </ContainerSplash>
             </div>
         
