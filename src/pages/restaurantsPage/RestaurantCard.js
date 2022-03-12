@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, InfoCard, Price, ImageContainer, Quantity } from './styles'
+import { Card, InfoCard, Price, ImageContainer, Quantity, Description } from './styles'
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
@@ -29,11 +29,11 @@ export const RestaurantCard = (props) => {
             </ImageContainer>
             <InfoCard>
                 <Quantity>
-                    <h2 className='greenTitle'>{props.name}</h2>
+                    <h2>{props.name}</h2>
                     <button>2</button>
                 </Quantity>
                 
-                <p>{props.description}</p>
+                <div>{props.description}</div>
                 <Price>
                     <h6>R${props.price}0</h6>   
                     <button onClick={handleClickOpen}>Adicionar</button> 
@@ -73,10 +73,7 @@ export const RestaurantCard = (props) => {
                         </DialogActions>
                     </Dialog>
                 </Price>
-            </InfoCard>
-
-
-            
+            </InfoCard>  
         </Card>
     )
 }

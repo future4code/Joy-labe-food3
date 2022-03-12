@@ -12,12 +12,16 @@ import axios from "axios";
 import { base_URL } from "../../constants/URL"
 import { SelectBar } from "../../components/SelectBar/SelectBar";
 
-export default function HomePage(props) { 
-    const [search, setSearch] = useState("") 
-    const [restaurantes, setRestaurantes] = useState([])  
-    const [categorias, setCategorias] = useState([]) 
-    const [filteredRestaurantes, setFilteredRestaurantes] = useState([]) 
- 
+
+export default function HomePage(props) { // declarando variaveis de estado 
+    const [search, setSearch] = useState("") //cria-se um estado chamado setSeacrh  que salva os dados da entrada de pesquisa em cada ocorrência do changeevento. 
+    const [restaurantes, setRestaurantes] = useState([])  // criou a variavel que vai receber uma lista e guardar no estado
+    const [selectedCategory, setSelectedCategoria] = useState('') //categorias selecionadas
+    const [categorias, setCategorias] = useState([]) // opções das categorias
+    const [filteredRestaurantes, setFilteredRestaurantes] = useState([]) // restaurante filtrados seja pelo texto ou categoria
+
+//    método   recebe uma string como argumento e filtra os restaurantes 
+
     const handleSearch = (e) => {
         const textFilter = e.target.value 
         setSearch(textFilter)
