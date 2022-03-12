@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
 export const ContainerSplash = styled.div`
-    display: flex;
-    align-items: center;
-   justify-content:center;
-    background-color: black;
-    width: 100vw ;
-    height:100vh;
-    color:yellow;
-    font-size: 300px;
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 242px 101px;
+position: relative;
+width: 375px;
+height: 667px;
+
+background: #141414;
 `
 
 
-export const ContainerTitleSplash = styled.p`
-    color:yellow;
-    font-size: 50px;
+export const ContainerImage = styled.img `
+
+width: 105%;
+height: 60%;
+
+
+
 `

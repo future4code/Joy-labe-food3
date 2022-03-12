@@ -7,9 +7,11 @@ import { Container } from "../restaurantsPage/styles";
 import { Footer } from "../../components/footer/Footer"
 import { TextField } from "@material-ui/core";
 import { CategoryBar } from "../../components/category/CategoryBar";
-import { ContainerCategory } from "../../components/category/styles";
+import { ContainerCategory, DontCategory } from "../../components/category/styles";
 import axios from "axios";
 import { base_URL } from "../../constants/URL"
+import { SelectBar } from "../../components/SelectBar/SelectBar";
+
 
 export default function HomePage(props) { // declarando variaveis de estado 
     const [search, setSearch] = useState("") //cria-se um estado chamado setSeacrh  que salva os dados da entrada de pesquisa em cada ocorrência do changeevento. 
@@ -19,8 +21,9 @@ export default function HomePage(props) { // declarando variaveis de estado
     const [filteredRestaurantes, setFilteredRestaurantes] = useState([]) // restaurante filtrados seja pelo texto ou categoria
 
 //    método   recebe uma string como argumento e filtra os restaurantes 
+
     const handleSearch = (e) => {
-        const textFilter = e.target.value // fez isso para evitar chamar e.target.value multiplas vezes
+        const textFilter = e.target.value 
         setSearch(textFilter)
         if(!textFilter)  return setFilteredRestaurantes(restaurantes);
         
@@ -34,19 +37,12 @@ export default function HomePage(props) { // declarando variaveis de estado
     }
 
     const handleSearchCategory = (categoryName) => {
-        setSelectedCategoria(categoryName)
-        if(categoryName === selectedCategory) return setFilteredRestaurantes(restaurantes);
+        if(!categoryName) return setFilteredRestaurantes(restaurantes);
    
-        const filteredList = restaurantes.filter( restaurantItem => {
-            return restaurantItem.category.toLowerCase().includes( categoryName.toLowerCase() )
-        })
+        const filteredList = restaurantes.filter( restaurantItem => restaurantItem.category.toLowerCase().includes( categoryName.toLowerCase()))
         setFilteredRestaurantes(filteredList)
     }
 
-
-
-
-    
     
         const getRestaurants = () => {
             const auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJjQXBxSzVCY3ZlVWxodzNBdWhhIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldnRlc3RlQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTExLjExMS4yMjItMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXp6eiwgMTc3OCwgNzExIC0gVmlsYSBOLiBDb25jZWnDp8Ojb28iLCJpYXQiOjE2NDUxMTgwODN9.J2c7hQS-Al-e7aEwm4gmpFXm1tf10EvNIsEhYuW-2pI"
@@ -68,12 +64,6 @@ export default function HomePage(props) { // declarando variaveis de estado
 
     useEffect(() => {
         getRestaurants();
-
-        //dicas para próxima página:
-        // history.location.pathname
-        // js split string e obter a ultima parte (o id do restaurante)
-        // fazer um getRestaurant e passar o id do restaurante obtido
-        // salvar dados do response num state local
     }, [])
 
     
@@ -89,18 +79,8 @@ export default function HomePage(props) { // declarando variaveis de estado
           <form>
           <TextField value={search} onChange={handleSearch} label="Restaurante" variant="outlined" fullWidth/>
           </form>
-          <ContainerCategory>
-            {categorias.map((categoryItem) => {
-                return (
-                    <CategoryBar
-                    selected={categoryItem === selectedCategory}
-                    action={() => handleSearchCategory(categoryItem)}
-                    category={categoryItem}
-                    />
-                )
-            })}
-          </ContainerCategory>
-          
+          <SelectBar list={categorias} action={handleSearchCategory} />
+       
 
           {filteredRestaurantes.length === 0 && (
                 <p>Nenhum restaurante encontrado</p>

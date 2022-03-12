@@ -1,6 +1,5 @@
-import { AppBar, Container, Tab, Tabs } from '@material-ui/core'
 import React from 'react'
-import { ContainerCategory, ItemCategory } from './styles'
+import { ItemCategory } from './styles'
 
 export const CategoryBar = (props) => {
   return (
@@ -10,8 +9,3 @@ export const CategoryBar = (props) => {
 
   )
 }
-
-
-{/* <ItemCategory 
-        onClick={props.onClick} 
-        value={props.value}> {props.category}</ItemCategory> */}
