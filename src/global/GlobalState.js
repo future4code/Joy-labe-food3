@@ -8,6 +8,25 @@ export const GlobalState = (props) => {
 
     const [restaurantes, setRestaurantes] = useState([])
     const [restaurantDetail, setRestaurantDetail] = useState({})
+    const [cartItems, setCartItems] = useState([]);
+    const [cart, setCart] = useState({
+        products: [],
+        restaurant: null,
+      });  
+
+
+      const addToCart = (restaurant, product, quantity = 1) => {
+        const newProduct = { ...product, quantity };
+    
+        setCart((cart) => ({
+          ...cart,
+          restaurant,
+          products:
+            restaurant.id === cart.restaurant?.id
+              ? [...cart.products, newProduct]
+              : [newProduct],
+        }));
+      };
     
     // console.log(restaurantes);
     const getRestaurants = () => {
@@ -55,7 +74,7 @@ export const GlobalState = (props) => {
     }
 // redux
     return (
-        <GlobalStateContext.Provider value={{ states, setters }}>
+        <GlobalStateContext.Provider value={{ states, setters, cart, setCart }}>
             {props.children}
         </GlobalStateContext.Provider>
     )

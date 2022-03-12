@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Card, InfoCard, Price, ImageContainer, Quantity, Description } from './styles'
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import { FormControl, MenuItem, Select } from "@material-ui/core"
+import GlobalStateContext from "../../global/GlobalStateContext";
 import Button from "@material-ui/core/Button";
 
 export const RestaurantCard = (props) => {
+
+    const { cart, setCart, addToCart } = useContext(GlobalStateContext);
+
 
     //váriavel com o estado do botão
     const [open, setOpen] = useState(false)
@@ -67,7 +71,7 @@ export const RestaurantCard = (props) => {
                             </FormControl>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose} color="primary">
+                            <Button onClick={addToCart} color="primary">
                                 Adicionar Ao Carrinho
                             </Button>
                         </DialogActions>
