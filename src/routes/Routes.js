@@ -23,6 +23,7 @@ export default function MainRoutes(){
                 <Route path="/Search" element={<SearchPage/>}/>
                 <Route path="/ShoppingCart" element={<ShoppingCartPage/>}/>
                 <Route path="/ProfilePage" element={<ProfilePage/>}/>
+                {/* <Route path="/AdressPageEdit" element={<AdressPageEdit/>}/> */}
                 {/* <Route path="/Profile/edit" element={<ProfileEdit/>}/> */}
                 
 

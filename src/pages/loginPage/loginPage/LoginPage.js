@@ -1,93 +1,100 @@
-import React from "react";
-import {ContainerForm, MainContainer, ContainerBtn} from "./styles";
-import Input from '@material-ui/core/Input';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel'
+import React, { useState } from "react";
+import { ContainerForm, MainContainer, ContainerBtn, ButtonLogin } from "./styles";
 import useForm from '../../../hooks/useForm'
-import {base_URL} from "../../../constants/URL"
+import { base_URL } from "../../../constants/URL"
 import axios from "axios"
 import { setToken } from "../../../helpers/localStorage";
-import {Link} from "react-router-dom"
-import { TextField } from "@material-ui/core";
+import { Link } from "react-router-dom"
+import { InputAdornment, TextField } from "@material-ui/core";
+import { ContainerSubtitle } from "../../registerPage/adressRegisterPage/styles";
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
-export default function LoginPage(){
-    
-    const {form, onChange, clear} = useForm ({email: "astrodev@future4.com",
-    password: "123456"})
-    
-    const onSubmitForm = (e) =>{
-            e.preventDefault()
-     console.log(form)
-        
-    axios.post (`${base_URL}login`, form)
-    .then(({data})=>{
-      
-    setToken(data.token)
-    console.log(data)
+
+export default function LoginPage() {
+
+    const { form, onChange, clear } = useForm({
+        email: "",
+        password: ""
     })
-    
-    .catch((err)=>{console.log (err)})    
+
+    const [showPassword, setShowPassword] = useState(false);
+
+
+    const onSubmitForm = (e) => {
+        e.preventDefault()
+        console.log(form)
+
+        axios.post(`${base_URL}login`, form)
+            .then(({ data }) => {
+
+                setToken(data.token)
+                console.log(data)
+            })
+
+            .catch((err) => { console.log(err) })
 
     }
-    
-    return(
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
+
+    return (
         <MainContainer>
-            <h3>Entrar</h3>
-            
-            
-            <ContainerForm>
-            <form onSubmit={onSubmitForm}>
-               
-            <FormControl>
-                <InputLabel htmlFor="InputEmail">Email</InputLabel>
-            <TextField
-             
-             id="InputEmail" 
-             variant="outlined" 
-             name="email"
-             value={form.email}
-             onChange={onChange}
-             placeholder={""}
-             required
-             type="email"
+            <ContainerSubtitle>
+                <p>Entrar</p>
+            </ContainerSubtitle>
+            <ContainerForm onSubmit={onSubmitForm}>
+                <TextField
+                    name="email"
+                    value={form.email}
+                    onChange={onChange}
+                    type="email"
+                    required
+                    id="InputEmail"
+                    variant="outlined"
+                    label="E-mail"
+                    placeholder="email@email.com.br"
+                    fullWidth
+                    margin="normal"
+                    style={{ margin: 8 }}
+                />
 
-             />
+                <TextField
+                    name="password"
+                    value={form.password}
+                    onChange={onChange}
+                    type={showPassword ? "text" : "password"}
+                    required
+                    id="InputSenha"
+                    variant="outlined"
+                    placeholder="*****"
+                    fullWidth
+                    label="Senha"
+                    margin="normal"
+                    style={{ margin: 8 }}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end" onClick={handleShowPassword}>
+                                {showPassword ? <VisibilityIcon cursor="pointer" /> : <VisibilityOffIcon cursor="pointer" />}
+                            </InputAdornment>
+                        )
+                    }}
+                />
 
-            </FormControl>
-            
-            <FormControl>
-                <InputLabel htmlFor="InputSenha">Senha</InputLabel>
-            <TextField
-            
-            id="InputSenha" 
-            variant="outlined" 
-            name="password"
-            value={form.password}
-            onChange={onChange}
-            placeholder={""}
-            required
-            type="senha"
-            
-            />
-
-            </FormControl>
-                        
-           
-            </form>
-            
+                <Link to="/HomePage">
+                    <ContainerBtn>
+                        <ButtonLogin>Entrar</ButtonLogin>
+                    </ContainerBtn>
+                </Link>
             </ContainerForm>
-            
-            <ContainerBtn>
-                Entrar
-            </ContainerBtn>
-                        
 
             <Link to="/BasicRegister">
-            <p>
-            Não possui cadastro? Clique aqui.
-            </p>
+                <p>
+                    Não possui cadastro? Clique aqui.
+                </p>
             </Link>
-
         </MainContainer>
     )
 };

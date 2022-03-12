@@ -54,18 +54,22 @@ export default function ProfilePage() {
           <p>{infoProfile?.email}</p>
           <p>{infoProfile?.cpf}</p>
         </ItemProfile>
-        <IconProfile>
-          <CreateOutlinedIcon />
-        </IconProfile>
+        {/* <Link to="/Profile/edit"> */}
+          <IconProfile>
+            <CreateOutlinedIcon />
+          </IconProfile>
+        {/* </Link> */}
       </ContainerItemProfile>
       <ContainerItemProfile>
         <ItemProfile>
           <p>Endereço cadastrado</p>
           <p>{infoProfile?.address}</p>
         </ItemProfile>
-        <IconProfile>
-          <CreateOutlinedIcon />
-        </IconProfile>
+        {/* <Link to="/AdressPageEdit"> */}
+          <IconProfile>
+            <CreateOutlinedIcon />
+          </IconProfile>
+        {/* </Link> */}
       </ContainerItemProfile>
       <p>Histórico de pedidos</p>
       {historyOrders ? "lista de pedidos" : "Você não realizou nenhum pedido"}

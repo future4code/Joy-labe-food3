@@ -13,6 +13,7 @@ export const Container = styled.div`
 
     .greenTitle {
         color: rgba(92, 182, 70, 70%);
+        font-size: 22px;
     }
 
 
@@ -49,7 +50,7 @@ export const Card = styled.div`
     border: 1px solid rgba(0, 0, 0, 25%);
     border-radius: 8px;
     margin-top: 1vh;
-    height: 17vh;
+    height: 20vh;
     width: 100%;
     margin-bottom: 1vh;
 
@@ -62,14 +63,16 @@ export const Card = styled.div`
 export const InfoCard = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 0px 0px 14px 14px;
+    padding: 0px 0px 0px 14px;
     width: 70%;
     border-radius: 20px;
+    height: 100% ;
+    justify-content: space-between;
 
     p {
         margin-top: 5px;
         font-size: 12px;
-        color: rgba(0, 0, 0, 25%);
+
     }
 
     h2 {
@@ -78,9 +81,10 @@ export const InfoCard = styled.div`
 `
 export const Price = styled.div`
     display: flex;
-    margin-top: 30px;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
+    align-self: flex-end;
 
     button {
             border: 1px solid green;
@@ -88,7 +92,7 @@ export const Price = styled.div`
             height: 30px;
             width: 90px;
             background-color: rgba(255, 255, 255, 0%);
-            border-radius: 10px 0 10px 0;
+            border-radius: 10px 0 7px 0;
             align-self: flex-end;
             margin-left: 100px;
     }
@@ -102,15 +106,18 @@ export const Quantity = styled.div`
 
     h2 {
         margin-top:15px;
+        font-size: 18px;
+        color: rgba(92, 182, 70, 70%);
+
     }
 
     button {
             border: 1px solid green;
             color: green;
             height: 30px;
-            width: 30px;
+            width: 31px;
             background-color: rgba(255, 255, 255, 0%);
-            border-radius: 0px 10px 0px 10px;
+            border-radius: 0px 7px 0px 10px;
             align-self: flex-start;
             margin-left: 85px;
     }
@@ -119,4 +126,3 @@ export const Quantity = styled.div`
 export const ImageContainer = styled.div`
     width: 30%;
 `
-
