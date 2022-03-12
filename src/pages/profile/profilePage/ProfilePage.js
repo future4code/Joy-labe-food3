@@ -7,6 +7,7 @@ import { ContainerItemProfile, IconProfile, ItemProfile } from './styles'
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import { getToken } from '../../../helpers/localStorage'
 import { Footer } from '../../../components/footer/Footer'
+import { Link } from 'react-router-dom'
 
 export default function ProfilePage() {
   const [infoProfile, setInfoProfile] = useState({})
@@ -54,22 +55,22 @@ export default function ProfilePage() {
           <p>{infoProfile?.email}</p>
           <p>{infoProfile?.cpf}</p>
         </ItemProfile>
-        {/* <Link to="/Profile/edit"> */}
+        <Link to="/Profile/edit">
           <IconProfile>
             <CreateOutlinedIcon />
           </IconProfile>
-        {/* </Link> */}
+        </Link>
       </ContainerItemProfile>
       <ContainerItemProfile>
         <ItemProfile>
           <p>Endereço cadastrado</p>
           <p>{infoProfile?.address}</p>
         </ItemProfile>
-        {/* <Link to="/AdressPageEdit"> */}
+        <Link to="/AdressPageEdit">
           <IconProfile>
             <CreateOutlinedIcon />
           </IconProfile>
-        {/* </Link> */}
+        </Link>
       </ContainerItemProfile>
       <p>Histórico de pedidos</p>
       {historyOrders ? "lista de pedidos" : "Você não realizou nenhum pedido"}

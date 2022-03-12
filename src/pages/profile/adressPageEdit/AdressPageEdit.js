@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, ContainerForm, ContainerSubtitle, ContainerBtn } from "./styles";
+import React, { useEffect } from "react";
+import { Container, ContainerForm, ContainerSubtitle, ContainerBtn } from "./style";
 import * as services from "../../../services/apiRequestAxios";
 import TextField from '@material-ui/core/TextField';
 import Header from "../../../components/header/Header";

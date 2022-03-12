@@ -6,11 +6,11 @@ import snack_logo from "../../../assets/snack_logo.png"
 
 export default function SplashScreenPage(){
     
-    //  setTimeout (() =>  {
+     setTimeout (() =>  {
 
            
-    //         window.location.pathname = "/Login"
-    //         }, 15000 )
+            window.location.pathname = "/Login"
+            }, 15000 )
                 
 
         return (

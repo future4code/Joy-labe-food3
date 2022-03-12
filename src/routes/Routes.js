@@ -11,6 +11,7 @@ import ShoppingCartPage from "../pages/shoppingCartPage/ShoppingCartPage";
 import GlobalStyle from "../styles/global";
 import ProfilePage from "../pages/profile/profilePage/ProfilePage";
 import ProfileEdit from "../pages/profile/profileEdit/ProfileEdit";
+import AdressPageEdit from "../pages/profile/adressPageEdit/AdressPageEdit"
 export default function MainRoutes(){
     return(
         <BrowserRouter>
@@ -24,7 +25,7 @@ export default function MainRoutes(){
                 <Route path="/Search" element={<SearchPage/>}/>
                 <Route path="/ShoppingCart" element={<ShoppingCartPage/>}/>
                 <Route path="/ProfilePage" element={<ProfilePage/>}/>
-                {/* <Route path="/AdressPageEdit" element={<AdressPageEdit/>}/> */}
+                <Route path="/AdressPageEdit" element={<AdressPageEdit/>}/>
                 <Route path="/Profile/edit" element={<ProfileEdit/>}/>
                 
 
