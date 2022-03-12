@@ -6,13 +6,8 @@ import { theme } from "./constants/theme";
 
 
 export default function App(){
-  return(
-
-  
-
-     
+  return(     
     <GlobalState>
-    
       <ThemeProvider theme={theme}>
         <MainRoutes/>
       </ThemeProvider>

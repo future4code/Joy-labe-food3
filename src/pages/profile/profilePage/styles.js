@@ -1,28 +1,18 @@
 import styled from "styled-components";
 
-export const ItemProfile = styled.div ` 
-width: 80%;
-height: 100px;
-display:flex ;
-justify-content: space-around;
+
+export const ContainerHistoryOrders = styled.div` 
+width: 100vw;
+display: flex;
 flex-direction: column;
-padding: 5px;
-`
-export const ContainerItemProfile = styled.div`
-width: 100%;
-height: 100px;
-display: flex;
-justify-content: space-between;
+height: auto ;
+margin-bottom: 50px;
+justify-content: space-around;
 align-items: center;
-margin-top: 50px;
 
 `
-
-export const IconProfile = styled.div`
-width: 10%;
-display: flex;
-justify-content: center;
-align-items: start;
-height: 100px ;
-padding-top: 10px;
+export const TitleSection = styled.h3` 
+  margin-top: 2vh;
+  border-bottom: 1px solid black;
+  width: 88% ;
 `

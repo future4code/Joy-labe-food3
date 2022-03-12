@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../../components/header/Header'
 import { base_URL } from '../../../constants/URL'
 import { Main } from '../../restaurantsPage/styles'
-import { ContainerItemProfile, IconProfile, ItemProfile } from './styles'
-import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import { ContainerHistoryOrders, TitleSection } from './styles'
 import { getToken } from '../../../helpers/localStorage'
 import { Footer } from '../../../components/footer/Footer'
-import { Link } from 'react-router-dom'
+import { CardPersonalData } from '../../../components/profile/CardPersonalData'
+import { CardAddressData } from '../../../components/profile/CardAddressData'
+import { CardHistoryOrders } from '../../../components/profile/CardHistoryOrders'
 
 export default function ProfilePage() {
   const [infoProfile, setInfoProfile] = useState({})
@@ -21,7 +22,6 @@ export default function ProfilePage() {
       }
     })
       .then((res) => {
-        // console.log(res.data.user)
         setInfoProfile(res.data.user)
       })
       .catch((err) => console.log(err))
@@ -49,30 +49,25 @@ export default function ProfilePage() {
       <Header
         pageName={"Meu Perfil"}
       />
-      <ContainerItemProfile>
-        <ItemProfile>
-          <p>{infoProfile?.name}</p>
-          <p>{infoProfile?.email}</p>
-          <p>{infoProfile?.cpf}</p>
-        </ItemProfile>
-        <Link to="/Profile/edit">
-          <IconProfile>
-            <CreateOutlinedIcon />
-          </IconProfile>
-        </Link>
-      </ContainerItemProfile>
-      <ContainerItemProfile>
-        <ItemProfile>
-          <p>Endereço cadastrado</p>
-          <p>{infoProfile?.address}</p>
-        </ItemProfile>
-        <Link to="/AdressPageEdit">
-          <IconProfile>
-            <CreateOutlinedIcon />
-          </IconProfile>
-        </Link>
-      </ContainerItemProfile>
-      <p>Histórico de pedidos</p>
+      <CardPersonalData
+        name={infoProfile?.name}
+        email={infoProfile?.email}
+        cpf={infoProfile?.cpf}
+      />
+
+      <CardAddressData
+        address={infoProfile?.address}
+      />
+
+      <TitleSection>Histórico de pedidos</TitleSection>
+      
+      <ContainerHistoryOrders>
+        <CardHistoryOrders />
+        <CardHistoryOrders />
+        <CardHistoryOrders />
+        <CardHistoryOrders />
+        <CardHistoryOrders />
+      </ContainerHistoryOrders>
       {historyOrders ? "lista de pedidos" : "Você não realizou nenhum pedido"}
 
       <Footer />
