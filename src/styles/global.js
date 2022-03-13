@@ -8,11 +8,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Roboto';
     font-size: 16px;
-  }
+  };
 
   .text-link {
     color: inherit;
     text-decoration: inherit;
-  }
-  
-  `
+  };
+`;

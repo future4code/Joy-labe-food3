@@ -8,21 +8,21 @@ import { Link } from 'react-router-dom';
 export const Footer = () => {
   return (
     <ContainerFooter>
-      <Link to="/HomePage">
         <ItemMenu>
-          <HomeOutlinedIcon fontSize='large' />
+          <Link to="/HomePage" style={{ color: 'inherit'}}>
+            <HomeOutlinedIcon fontSize='large' />
+          </Link>
         </ItemMenu>
-      </Link>
-      <Link to="/ShoppingCart">
         <ItemMenu>
-          <ShoppingCartOutlinedIcon fontSize='large' />
+          <Link to="/ShoppingCart" style={{ color: 'inherit'}}>
+            <ShoppingCartOutlinedIcon fontSize='large' />
+          </Link>
         </ItemMenu>
-      </Link>
-      <Link to="/ProfilePage">
         <ItemMenu>
-          <PersonOutlineOutlinedIcon fontSize='large' />
+          <Link to="/ProfilePage" style={{ color: 'inherit'}}>
+            <PersonOutlineOutlinedIcon fontSize='large' />
+          </Link>
         </ItemMenu>
-      </Link>
     </ContainerFooter>
   )
 }

@@ -1,14 +1,13 @@
 import React from "react";
 import { Container, ContainerForm, ContainerSubtitle, ContainerBtn } from "./styles";
 import * as services from "../../../services/apiRequestAxios";
-import TextField from '@material-ui/core/TextField';
 import Header from "../../../components/header/Header";
 import useForm from "../../../hooks/useForm";
 import { getToken, setToken } from "../../../helpers/localStorage";
+import TextField from '@material-ui/core/TextField';
 import { useNavigate } from "react-router-dom";
 
 export default function AdressRegisterPage(){
-
     const {form, onChange} = useForm({
         street: "",
         number: "",
@@ -20,8 +19,7 @@ export default function AdressRegisterPage(){
     const navigate = useNavigate();
 
     const registerAdress = (e) =>{
-        e.preventDefault()
-
+        e.preventDefault();
         services.request
         .put(`/address`, form,{
             headers:{
@@ -32,8 +30,8 @@ export default function AdressRegisterPage(){
             setToken(data.token)
             navigate("/HomePage")
         })
-        .catch(err => console.log(err.response.data))
-    }
+        .catch(err => console.log(err.response.data));
+    };
 
     return(
         <Container>
@@ -65,7 +63,6 @@ export default function AdressRegisterPage(){
                     onChange={onChange}
                     type="text"
                     required
-                    id="outlined-full-width"
                     label="Número"
                     placeholder="Número"
                     fullWidth
@@ -82,7 +79,6 @@ export default function AdressRegisterPage(){
                     onChange={onChange}
                     type="text"
                     required
-                    id="outlined-full-width"
                     label="Complemento"
                     placeholder="Apto / Bloco"
                     fullWidth
@@ -99,7 +95,6 @@ export default function AdressRegisterPage(){
                     onChange={onChange}
                     type="text"
                     required
-                    id="outlined-full-width"
                     label="Bairro"
                     placeholder="Bairro"
                     fullWidth
@@ -116,7 +111,6 @@ export default function AdressRegisterPage(){
                     onChange={onChange}
                     type="text"
                     required
-                    id="outlined-full-width"
                     label="Cidade"
                     placeholder="Cidade"
                     fullWidth
@@ -133,7 +127,6 @@ export default function AdressRegisterPage(){
                     onChange={onChange}
                     type="text"
                     required
-                    id="outlined-full-width"
                     label="Estado"
                     placeholder="Estado"
                     fullWidth
