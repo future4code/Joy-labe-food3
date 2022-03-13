@@ -6,6 +6,13 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    font-family: 'Roboto, Arial';
+    font-family: 'Roboto';
     font-size: 16px;
-  }`
+  }
+
+  .text-link {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  
+  `

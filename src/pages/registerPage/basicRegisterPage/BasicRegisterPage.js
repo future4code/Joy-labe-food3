@@ -69,11 +69,9 @@ export default function BasicRegisterPage(){
                     onChange={onChange}
                     type="text"
                     required
-                    id="outlined-full-width"
                     label="Nome"
                     placeholder="Nome e sobrenome"
                     fullWidth
-                    margin="normal"
                     InputLabelProps={{
                     shrink: true,
                     }}
@@ -86,7 +84,6 @@ export default function BasicRegisterPage(){
                     onChange={onChange}
                     type="email"
                     required
-                    id="outlined-full-width"
                     label="E-mail"
                     placeholder="email@email.com"
                     fullWidth
@@ -102,7 +99,6 @@ export default function BasicRegisterPage(){
                     value={form.cpf}
                     onChange={onChange}
                     required
-                    id="outlined-full-width"
                     label="CPF"
                     placeholder="000.000.000-00"
                     fullWidth
@@ -119,7 +115,6 @@ export default function BasicRegisterPage(){
                     onChange={onChange}
                     type={showPassword ? "text" : "password"}
                     required
-                    id="outlined-full-width"
                     label="Senha"
                     placeholder="Mínimo 6 caracteres"
                     fullWidth
@@ -145,7 +140,6 @@ export default function BasicRegisterPage(){
                     onChange={onChange}
                     type={showPassword ? "text" : "password"}
                     required
-                    id="outlined-full-width"
                     label="Confirmar"
                     placeholder="Confirme a senha anterior"
                     fullWidth
@@ -180,7 +174,15 @@ export default function BasicRegisterPage(){
                 </ContainerBtn>
                 <ContainerFooter>
                     <p>Já possui uma conta?</p>
-                    <Link to="/login">Login</Link>
+                    <p><Link style={{ 
+                        color: 'inherit', 
+                        textDecoration: 'inherit',
+                        cursor: 'pointer',
+                        fontWeight: 'bold'}} 
+                        to="/login"> 
+                            Login
+                        </Link>
+                    </p>
                 </ContainerFooter>
             </ContainerForm>
         </Container>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ContainerForm, MainContainer, ContainerBtn, ButtonLogin } from "./styles";
+import { ContainerForm, MainContainer, ContainerBtn, ContainerFooter, ButtonLogin } from "./styles";
 import useForm from '../../../hooks/useForm'
 import { base_URL } from "../../../constants/URL"
 import axios from "axios"
@@ -9,6 +9,7 @@ import { InputAdornment, TextField } from "@material-ui/core";
 import { ContainerSubtitle } from "../../registerPage/adressRegisterPage/styles";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import { useNavigate } from "react-router-dom";
 
 
 export default function LoginPage() {
@@ -19,6 +20,7 @@ export default function LoginPage() {
     })
 
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
 
     const onSubmitForm = (e) => {
@@ -27,13 +29,11 @@ export default function LoginPage() {
 
         axios.post(`${base_URL}login`, form)
             .then(({ data }) => {
-
-                setToken(data.token)
-                clear()
+                setToken(data.token)            
+                navigate("/HomePage")
             })
-
-            .catch((err) => { console.log(err) })
-
+            .catch((err) => { console.log(err) }
+        )
     }
 
     const handleShowPassword = () => {
@@ -81,20 +81,23 @@ export default function LoginPage() {
                             </InputAdornment>
                         )
                     }}
-                />
-
-                <Link to="/HomePage">
-                    <ContainerBtn>
-                        <ButtonLogin>Entrar</ButtonLogin>
-                    </ContainerBtn>
-                </Link>
+                />                
+                <ContainerBtn>
+                    <ButtonLogin>Entrar</ButtonLogin>
+                </ContainerBtn>
             </ContainerForm>
-
-            <Link to="/BasicRegister">
-                <p>
-                    Não possui cadastro? Clique aqui.
+            <ContainerFooter>
+                <p>Não possui cadastro?</p>
+                <p><Link style={{ 
+                    color: 'inherit', 
+                    textDecoration: 'inherit',
+                    cursor: 'pointer',
+                    fontWeight: 'bold'}} 
+                    to="/Basicregister"> 
+                        Clique aqui
+                    </Link>
                 </p>
-            </Link>
+            </ContainerFooter>
         </MainContainer>
     )
 };
