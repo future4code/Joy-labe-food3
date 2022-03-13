@@ -9,7 +9,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function ProfileEdit(){
-
     const { form, onChange, setForm } = useForm({});
 
     const profileUser = () =>{
@@ -20,12 +19,11 @@ export default function ProfileEdit(){
             }
         })
         .then(({data}) => setForm(data.user))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     };
 
     const editProfile = (e) =>{
-        e.preventDefault()
-
+        e.preventDefault();
         services.request
         .put(`profile`, form,{
             headers : {
@@ -33,8 +31,8 @@ export default function ProfileEdit(){
             }
         })
         .then(() => toast.success("Perfil atualizado!"))
-        .catch(() => toast.error("Email ou CPF já cadastrados!"))
-    }
+        .catch(() => toast.error("Email ou CPF já cadastrados!"));
+    };
 
     useEffect(()=>{
         profileUser();
@@ -101,8 +99,6 @@ export default function ProfileEdit(){
                     <button>Salvar</button>
                 </ContainerBtn>
             </ContainerForm>
-
         </Container>
-
-    )
+    );
 };

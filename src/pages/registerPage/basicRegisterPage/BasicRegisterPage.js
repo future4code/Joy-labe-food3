@@ -11,7 +11,7 @@ import {
     Header, 
     ContainerFooter
 } from "./styles";
-import logo from "../../../assets/Logo_black.svg";
+import logo from "../../../assets/snack_logo_black.png";
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import VisibilityIcon from '@material-ui/icons/Visibility';
