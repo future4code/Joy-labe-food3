@@ -1,13 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
-import { MainContainer, ContainerCards } from "./styles";
+import React, { useState, useEffect } from "react";
+import { MainContainer } from "./styles";
 import { CardComponent } from "./CardComponent";
-import GlobalStateContext from "../../global/GlobalStateContext";
 import Header from "../../components/header/Header";
 import { Container } from "../restaurantsPage/styles";
 import { Footer } from "../../components/footer/Footer"
 import { TextField } from "@material-ui/core";
-import { CategoryBar } from "../../components/category/CategoryBar";
-import { ContainerCategory, DontCategory } from "../../components/category/styles";
 import axios from "axios";
 import { base_URL } from "../../constants/URL"
 import { SelectBar } from "../../components/SelectBar/SelectBar";
@@ -16,7 +13,6 @@ import { SelectBar } from "../../components/SelectBar/SelectBar";
 export default function HomePage(props) { // declarando variaveis de estado 
     const [search, setSearch] = useState("") //cria-se um estado chamado setSeacrh  que salva os dados da entrada de pesquisa em cada ocorrência do changeevento. 
     const [restaurantes, setRestaurantes] = useState([])  // criou a variavel que vai receber uma lista e guardar no estado
-    const [selectedCategory, setSelectedCategoria] = useState('') //categorias selecionadas
     const [categorias, setCategorias] = useState([]) // opções das categorias
     const [filteredRestaurantes, setFilteredRestaurantes] = useState([]) // restaurante filtrados seja pelo texto ou categoria
 

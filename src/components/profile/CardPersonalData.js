@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ContainerItemProfile, IconProfile, ItemCategory, ItemProfile } from './styles'
+import { ContainerItemProfile, IconProfile, ItemProfile } from './styles'
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 
 export const CardPersonalData = (props) => {
@@ -12,7 +12,7 @@ export const CardPersonalData = (props) => {
           <p>{props.cpf}</p>
         </ItemProfile>
         <Link to="/Profile/edit">
-          <IconProfile>
+          <IconProfile style={{ color: 'black'}}>
             <CreateOutlinedIcon />
           </IconProfile>
         </Link>

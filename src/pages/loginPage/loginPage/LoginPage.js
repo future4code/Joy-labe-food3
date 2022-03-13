@@ -29,7 +29,7 @@ export default function LoginPage() {
             .then(({ data }) => {
 
                 setToken(data.token)
-                console.log(data)
+                clear()
             })
 
             .catch((err) => { console.log(err) })

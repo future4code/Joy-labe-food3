@@ -28,9 +28,7 @@ export const ContainerForm = styled.form`
         font-weight: bold;
     }
 `
-export const ContainerSubtitle = styled.div`
-    margin: 0 0 8px 0;
-`
+
 export const ContainerBtn = styled.div`
     margin: 8px 0 0 0;
 `

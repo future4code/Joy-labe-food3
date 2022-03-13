@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, InfoCard, Price, ImageContainer, Quantity, Description } from './styles'
+import { Card, InfoCard, Price, ImageContainer, Quantity } from './styles'
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"

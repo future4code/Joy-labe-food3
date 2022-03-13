@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { Container, ContainerForm, ContainerSubtitle, ContainerBtn } from "./style";
+import { Container, ContainerForm, ContainerBtn } from "./style";
 import * as services from "../../../services/apiRequestAxios";
 import TextField from '@material-ui/core/TextField';
 import Header from "../../../components/header/Header";
 import useForm from "../../../hooks/useForm";
-import { getToken, setToken } from "../../../helpers/localStorage";
-import { useNavigate } from "react-router-dom";
+import { getToken } from "../../../helpers/localStorage";
 
 export default function AdressPageEdit(){
 
@@ -18,10 +17,16 @@ export default function AdressPageEdit(){
                 auth: getToken()
             }
         })
-        .then(({data}) => setForm(data.user))
+        .then(({data}) => {
+            setForm(data.address)
+            console.log('form console', form);
+        })
         .catch(err => console.log(err))
     };
-
+    useEffect(()=>{
+        getAdress()
+    },[]);
+    
     const editAdress = () =>{
         services.request
         .put(`address`, form,{
@@ -33,10 +38,7 @@ export default function AdressPageEdit(){
         .catch(err => alert(err.reponse.data))
     }
 
-    useEffect(()=>{
-        getAdress()
-    },[]);
-
+        
     return(
         <Container>
             <Header
@@ -151,4 +153,5 @@ export default function AdressPageEdit(){
             </ContainerForm>
         </Container>
     )
-};
+
+}
