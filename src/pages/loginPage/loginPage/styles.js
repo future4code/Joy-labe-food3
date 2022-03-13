@@ -27,6 +27,10 @@ export const ContainerBtn = styled.div`
     margin: 8px 0 0 0;
 
 `
+export const ContainerFooter = styled.div`
+    display: flex;
+`
+
 export const ButtonLogin = styled.button` 
     width: 90vw;
     height: 3rem;

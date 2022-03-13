@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ContainerForm, MainContainer, ContainerBtn, ButtonLogin } from "./styles";
+import { ContainerForm, MainContainer, ContainerBtn, ContainerFooter, ButtonLogin } from "./styles";
 import useForm from '../../../hooks/useForm'
 import { base_URL } from "../../../constants/URL"
 import axios from "axios"
@@ -86,12 +86,18 @@ export default function LoginPage() {
                     <ButtonLogin>Entrar</ButtonLogin>
                 </ContainerBtn>
             </ContainerForm>
-
-            <Link to="/BasicRegister">
-                <p>
-                    Não possui cadastro? Clique aqui.
+            <ContainerFooter>
+                <p>Não possui cadastro?</p>
+                <p><Link style={{ 
+                    color: 'inherit', 
+                    textDecoration: 'inherit',
+                    cursor: 'pointer',
+                    fontWeight: 'bold'}} 
+                    to="/Basicregister"> 
+                        Clique aqui
+                    </Link>
                 </p>
-            </Link>
+            </ContainerFooter>
         </MainContainer>
     )
 };
