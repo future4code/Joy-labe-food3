@@ -32,11 +32,13 @@ export const ContainerBtn = styled.div`
 export const Header = styled.header`
     display: flex;
     justify-content: center;
-    width: 90vw;
+    align-items: center;
+    width: 100vw;
     height: 20vh;    
 
     img{
-        width: 100%;
+        width: 50%;
+        height: 70%;
     };
 `;
 export const ContainerFooter = styled.div`
