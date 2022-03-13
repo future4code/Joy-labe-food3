@@ -16,7 +16,8 @@ export default function ShoppingCartPage(props){
     const { cartItems, cart} = useContext(GlobalStateContext);
     const { id } = useParams();
 
-    const totalPrice = cartItems?.reduce((a, c) => a + c.price * c.qty, 0);
+    const totalPrice = cart?.products?.reduce((a, c) => a + c.price * c.quantity, 0);
+    
     // console.log("SUBTOTAL:", Number.totalPrice)
     // console.log("TIPO:", typeof(totalPrice), totalPrice)
     console.log("CARRINHO:", cart)

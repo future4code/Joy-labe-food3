@@ -71,7 +71,10 @@ export const RestaurantCard = (props) => {
                             </FormControl>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={addToCart} color="primary">
+                            <Button onClick={()=> addToCart(
+                                props.id,
+                                props.product
+                            )} color="primary">
                                 Adicionar Ao Carrinho
                             </Button>
                         </DialogActions>

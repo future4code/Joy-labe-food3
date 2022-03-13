@@ -74,7 +74,7 @@ export const GlobalState = (props) => {
     }
 // redux
     return (
-        <GlobalStateContext.Provider value={{ states, setters, cart, setCart }}>
+        <GlobalStateContext.Provider value={{ states, setters, cart, setCart, addToCart }}>
             {props.children}
         </GlobalStateContext.Provider>
     )
