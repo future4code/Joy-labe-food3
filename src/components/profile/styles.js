@@ -1,27 +1,27 @@
 import styled from "styled-components";
-import { primaryColor, neutralColor } from '../../constants/colors';
+import { primaryColor } from '../../constants/colors';
 
 export const ItemProfile = styled.div ` 
-width: 80%;
+width: 70%;
 height: 100px;
 display:flex ;
 justify-content: space-around;
 flex-direction: column;
 padding: 5px;
-font-weight: bold;
 `
 export const ContainerItemProfile = styled.div`
 width: 100%;
 height: 100px;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 align-items: center;
-margin-top: 50px;
-
+&:hover {
+    background-color: rgba(0,0,0,25%);
+  }
 `
 
 export const IconProfile = styled.div`
-width: 10%;
+/* width: 30%; */
 display: flex;
 justify-content: center;
 align-items: start;
@@ -36,5 +36,16 @@ margin: 10px;
 `
 
 export const TitleRestaurant = styled.p  ` 
-color: ${primaryColor}
+color: ${primaryColor};
+`
+
+export const Message = styled.div ` 
+font-size: 17px;
+margin: auto;
+width: 90%;
+text-align: center;
+`
+
+export const AddresLabel = styled.p` 
+color: rgba(0,0,0,25%)
 `

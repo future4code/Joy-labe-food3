@@ -1,29 +1,21 @@
 import React from "react";
-import styledComponents from "styled-components";
-import { ContainerSplash, ContainerImage} from "./styles";
+import { ContainerSplash, ContainerImage } from "./styles";
 import snack_logo from "../../../assets/snack_logo.png"
 
 
-export default function SplashScreenPage(){
-    
-     setTimeout (() =>  {
+export default function SplashScreenPage() {
 
-           
-            window.location.pathname = "/Login"
-            }, 15000 )
-                
+    setTimeout(() => {
+        window.location.pathname = "/Login"
+    }, 15000)
 
-        return (
-            <div>
-             
-              
+    return (
+        <div>
             <ContainerSplash>
-               
-                <ContainerImage src= {snack_logo} />
-           
+                <ContainerImage src={snack_logo} />
             </ContainerSplash>
-            </div>
-        
+        </div>
+
     )
 }
 ;

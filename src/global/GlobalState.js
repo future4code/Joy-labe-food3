@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { base_URL } from "../constants/URL"
 import GlobalStateContext from "./GlobalStateContext"
-import { useRequestData } from "../hooks/useRequestData";
 
 export const GlobalState = (props) => {
 
@@ -61,7 +60,7 @@ export const GlobalState = (props) => {
         if (!restaurantes.length) {
             getRestaurants()
         }
-    }, [])
+    }, [restaurantes])
 
     const states = {
         restaurantes,

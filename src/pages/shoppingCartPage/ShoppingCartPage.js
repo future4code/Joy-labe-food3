@@ -20,12 +20,7 @@ export default function ShoppingCartPage(props){
     // console.log("SUBTOTAL:", Number.totalPrice)
     // console.log("TIPO:", typeof(totalPrice), totalPrice)
     console.log("CARRINHO:", cart)
-
-   
-    
-    
-
-
+  
     return(
         <div>
             <Header

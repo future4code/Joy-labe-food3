@@ -1,18 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ContainerItemProfile, IconProfile, ItemProfile } from './styles'
+import { AddresLabel, ContainerItemProfile, IconProfile, ItemProfile } from './styles'
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 
 export const CardAddressData= (props) => {
   return (
     <ContainerItemProfile>
       <ItemProfile>
-        <p>Endereço cadastrado</p>
+        <AddresLabel>Endereço cadastrado</AddresLabel>
         <p>{props.address}</p>
       </ItemProfile>
-      <Link to="AdressPageEdit">
+      <Link to="/AdressPageEdit">
         <IconProfile>
-          <CreateOutlinedIcon />
+          <CreateOutlinedIcon style={{ color: 'black'}} />
         </IconProfile>
       </Link>
     </ContainerItemProfile>

@@ -6,11 +6,11 @@ import LoginPage from "../pages/loginPage/loginPage/LoginPage";
 import AdressRegisterPage from "../pages/registerPage/adressRegisterPage/AdressRegisterPage";
 import BasicRegisterPage from "../pages/registerPage/basicRegisterPage/BasicRegisterPage";
 import RestaurantsPage from "../pages/restaurantsPage/RestaurantsPage";
-import SearchPage from "../pages/searchPage/SearchPage";
 import ShoppingCartPage from "../pages/shoppingCartPage/ShoppingCartPage";
 import GlobalStyle from "../styles/global";
 import ProfilePage from "../pages/profile/profilePage/ProfilePage";
 import ProfileEdit from "../pages/profile/profileEdit/ProfileEdit";
+// import AdressPageEdit from "../pages/profile/adressPageEdit/AdressPageEdit";
 import AdressPageEdit from "../pages/profile/adressPageEdit/AdressPageEdit"
 export default function MainRoutes(){
     return(
@@ -22,13 +22,10 @@ export default function MainRoutes(){
                 <Route path="/AdressRegister" element={<AdressRegisterPage/>}/>
                 <Route path="/BasicRegister" element={<BasicRegisterPage/>}/>
                 <Route path="/Restaurants/:id" element={<RestaurantsPage/>}/>
-                <Route path="/Search" element={<SearchPage/>}/>
                 <Route path="/ShoppingCart" element={<ShoppingCartPage/>}/>
                 <Route path="/ProfilePage" element={<ProfilePage/>}/>
                 <Route path="/AdressPageEdit" element={<AdressPageEdit/>}/>
                 <Route path="/Profile/edit" element={<ProfileEdit/>}/>
-                
-
             </Routes>
             <GlobalStyle/>
         </BrowserRouter>

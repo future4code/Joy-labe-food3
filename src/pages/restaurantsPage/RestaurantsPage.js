@@ -20,11 +20,6 @@ export default function RestaurantsPage() {
     //váriavel para pegar o id do restaurante via URL
     const { id } = useParams();
 
-    //map para gerar lista categorias
-    const listCategory = selectedRestaurantProducts && selectedRestaurantProducts.map((product) => {
-        return <p>{product.category}</p>
-    })
-
     //função para pegar os detalhes do restaurante via API
     useEffect(() => {
         const auth = getToken()
@@ -36,7 +31,7 @@ export default function RestaurantsPage() {
             })
             .then((res) => setSelectedRestaurantProducts(res.data.restaurant.products))
             .catch((err) => console.log(err.response.message))
-    }, [])
+    }, [id])
 
     console.log(selectedRestaurantProducts)
 

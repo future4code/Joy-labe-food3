@@ -29,7 +29,7 @@ export default function LoginPage() {
 
         axios.post(`${base_URL}login`, form)
             .then(({ data }) => {
-                setToken(data.token)
+                setToken(data.token)            
                 navigate("/HomePage")
             })
             .catch((err) => { console.log(err) }

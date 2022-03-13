@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React from "react";
 import { Card } from "@material-ui/core";
 
 export const MainContainer = styled.div` 
@@ -14,7 +13,6 @@ export const ContainerCards = styled(Card)`
 width: 100%;
 margin-top: 10px;
 background-color: red;
-
 `
 
 export const ContainerContent = styled.div ` 
