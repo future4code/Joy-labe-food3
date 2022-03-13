@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import * as services from "../../../services/apiRequestAxios";
+import useForm from "../../../hooks/useForm";
+import { setToken } from "../../../helpers/localStorage";
 import { 
     Container, 
     ContainerForm, 
@@ -13,13 +16,11 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import { Link, useNavigate } from "react-router-dom";
-import useForm from "../../../hooks/useForm";
-import { setToken } from "../../../helpers/localStorage";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function BasicRegisterPage(){
-
-    const {form, onChange} = useForm({
+    const { form, onChange } = useForm({
         name: "",
         email: "",
         cpf: "",
@@ -28,18 +29,16 @@ export default function BasicRegisterPage(){
     });
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-
+    
     const register = (e) => {
-        e.preventDefault()
-
-        const {name, email, cpf, password} = form
+        e.preventDefault();
+        const {name, email, cpf, password} = form;
         const body = {
             name,
             email,
             cpf,
             password
-        }
-
+        };
         form.password === form.confirmPassword &&
         services.request
         .post(`/signup`, body)
@@ -47,21 +46,22 @@ export default function BasicRegisterPage(){
             setToken(data.token)
             navigate("/Adressregister")
         })
-        .catch(err => console.log(err.response.data.message));
-    }
+        .catch(() => toast.error("Email ou CPF já cadastrados!"));
+    };
 
     const handleShowPassword = () => {
-        setShowPassword(!showPassword)
-    }
+        setShowPassword(!showPassword);
+    };
     
     return(
         <Container>
+            <ToastContainer theme={"colored"}/>
             <Header>
-                <img alt={""} src={logo}/>
+                <img alt={"Logo Snack Time"} src={logo}/>
             </Header>
             <ContainerForm onSubmit={register}>
                 <ContainerSubtitle>
-                    <p>Cadastrar</p>
+                    <p style={{fontWeight:'bold'}}>Cadastrar</p>
                 </ContainerSubtitle>
                 <TextField
                     name="name"
@@ -88,6 +88,7 @@ export default function BasicRegisterPage(){
                     placeholder="email@email.com"
                     fullWidth
                     margin="normal"
+                    inputProps={{pattern:"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"}}
                     InputLabelProps={{
                     shrink: true,
                     }}
@@ -103,6 +104,8 @@ export default function BasicRegisterPage(){
                     placeholder="000.000.000-00"
                     fullWidth
                     margin="normal"
+                    inputProps={{pattern: "^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"}}
+                    title="Exemplo: 000.000.000-00"
                     InputLabelProps={{
                     shrink: true,
                     }}
@@ -128,13 +131,24 @@ export default function BasicRegisterPage(){
                     style={{ margin: 8 }}
                     InputProps = {{
                         endAdornment:(
-                            <InputAdornment position="end" onClick={handleShowPassword}>
-                                 {showPassword ? <VisibilityIcon cursor="pointer"/> : <VisibilityOffIcon cursor="pointer"/>}   
+                            <InputAdornment 
+                                position="end" 
+                                onClick={handleShowPassword}
+                            >
+                                {
+                                    showPassword ? 
+                                    <VisibilityIcon cursor="pointer"/> : 
+                                    <VisibilityOffIcon cursor="pointer"/>
+                                }   
                             </InputAdornment>
                         )
                     }}
                 />
                 <TextField
+                    error={
+                        form.password !== form.confirmPassword && true
+                    }
+                    id="outlined-error-helper-text"
                     name="confirmPassword"
                     value={form.confirmPassword}
                     onChange={onChange}
@@ -151,20 +165,22 @@ export default function BasicRegisterPage(){
                     inputProps={{ pattern: "^.{6,}" }}
                     title="A senha deve ter no mínimo 6 caracteres!"
                     style={{ margin: 8}}
-                    color={
-                        form.confirmPassword !== "" 
-                        && form.password !== form.confirmPassword 
-                        && "secondary"
-                    }
                     helperText={
                         form.confirmPassword !== "" 
                         && form.password !== form.confirmPassword 
-                        && "Deve ser a mesma que a anterior"
+                        && <p style={{color:'red'}}>Deve ser a mesma que a anterior</p>
                     }
                     InputProps = {{
                         endAdornment:(
-                            <InputAdornment position="end" onClick={handleShowPassword}>
-                                {showPassword ? <VisibilityIcon cursor="pointer"/> : <VisibilityOffIcon cursor="pointer"/>}   
+                            <InputAdornment 
+                                position="end" 
+                                onClick={handleShowPassword}
+                            >
+                                {
+                                    showPassword ? 
+                                    <VisibilityIcon cursor="pointer"/> : 
+                                    <VisibilityOffIcon cursor="pointer"/>
+                                }   
                             </InputAdornment>
                         )
                     }}
@@ -174,12 +190,18 @@ export default function BasicRegisterPage(){
                 </ContainerBtn>
                 <ContainerFooter>
                     <p>Já possui uma conta?</p>
-                    <p><Link style={{ 
-                        color: 'inherit', 
-                        textDecoration: 'inherit',
-                        cursor: 'pointer',
-                        fontWeight: 'bold'}} 
-                        to="/login"> 
+                    <p>
+                        <Link 
+                            style={
+                                { 
+                                    color: 'inherit', 
+                                    textDecoration: 'inherit',
+                                    cursor: 'pointer',
+                                    fontWeight: 'bold'
+                                }
+                            } 
+                            to="/login"
+                        > 
                             Login
                         </Link>
                     </p>

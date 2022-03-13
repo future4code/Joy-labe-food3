@@ -6,11 +6,7 @@ export const Container = styled.div`
     align-items: center;
     width: 100vw;
     height: 100vh;
-
-    /* p{
-        font-weight: bold;
-    } */
-`
+`;
 export const ContainerForm = styled.form`
     display: flex;
     flex-direction: column;
@@ -25,14 +21,14 @@ export const ContainerForm = styled.form`
         border-radius: 5px;
         background-color: #5CB646;
         font-weight: bold;
-    }
-`
+    };
+`;
 export const ContainerSubtitle = styled.div`
     margin: 0 0 8px 0;
-`
+`;
 export const ContainerBtn = styled.div`
     margin: 8px 0 0 0;
-`
+`;
 export const Header = styled.header`
     display: flex;
     justify-content: center;
@@ -41,12 +37,11 @@ export const Header = styled.header`
 
     img{
         width: 100%;
-    }
-
-`
+    };
+`;
 export const ContainerFooter = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 28px 0 0 0;
-`
+    margin: 15px 0 0 0;
+`;

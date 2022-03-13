@@ -10,7 +10,7 @@ export const Container = styled.div`
     p{
         font-weight: bold;
     }
-`
+`;
 export const ContainerForm = styled.form`
     display: flex;
     flex-direction: column;
@@ -27,10 +27,10 @@ export const ContainerForm = styled.form`
         background-color: #5CB646;
         font-weight: bold;
     }
-`
+`;
 export const ContainerSubtitle = styled.div`
     margin: 0 0 8px 0;
-`
+`;
 export const ContainerBtn = styled.div`
     margin: 8px 0 0 0;
-`
+`;

@@ -28,3 +28,6 @@ export const ContainerForm = styled.form`
         font-weight: bold;
     }
 `
+export const ContainerBtn = styled.div`
+    margin: 8px 0 0 0;
+`;
