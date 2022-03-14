@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../assets/Logo_black.svg'
+import logo from '../../assets/snack_logo_black.png'
 import { LogoHeader } from './styles'
 
 

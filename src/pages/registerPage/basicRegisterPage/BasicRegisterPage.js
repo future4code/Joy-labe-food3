@@ -57,7 +57,9 @@ export default function BasicRegisterPage(){
     return(
         <Container>
             <ToastContainer theme={"colored"}/>
-            <HeaderLogo/>
+            <Header>
+                <img src={logo}></img>
+            </Header>
             <ContainerForm onSubmit={register}>
                 <ContainerSubtitle>
                     <p style={{fontWeight:'bold'}}>Cadastrar</p>

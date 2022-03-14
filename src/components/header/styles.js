@@ -20,8 +20,8 @@ export const HeaderContainer = styled.header`
 export const LogoHeader = styled.header`
     display: flex;
     justify-content: center;
-    width: 90vw;
-    height: 20vh;    
+    width: 200px;
+    height: 20vh; 
 
     img{
         width: 100%;
