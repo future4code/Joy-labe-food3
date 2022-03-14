@@ -14,6 +14,19 @@ export const GlobalState = (props) => {
         restaurant: null,
       });  
 
+      const onAdd = (product) => {
+        const exist = cartItems.find(x => x.id === product.id);
+        if(exist) {
+          setCartItems(
+            cartItems.map((x)=> x.id === product.id ? {...exist, qty: exist.qty + 1} : x 
+            
+            )
+          );
+        }else {
+          setCartItems([...cartItems, {...product, qty: 1}]);
+        }
+      }
+
 
       const addToCart = (restaurant, product, quantity = 1) => {
         const newProduct = { ...product, quantity };
@@ -72,7 +85,7 @@ export const GlobalState = (props) => {
     }
 // redux
     return (
-        <GlobalStateContext.Provider value={{ states, setters, cart, setCart }}>
+        <GlobalStateContext.Provider value={{ states, setters, cart, setCart, cartItems, setCartItems, onAdd }}>
             {props.children}
         </GlobalStateContext.Provider>
     )
