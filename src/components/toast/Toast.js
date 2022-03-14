@@ -44,14 +44,14 @@ const Msg = (props) => (
       <TitleToast>Pedido em andamento</TitleToast>
       <InfoToast>
       <p>{props.restaurantName}</p>
-      <p>SUBTOTAL R${props.total}</p>
+      <p>SUBTOTAL R${props.totalPrice}</p>
       </InfoToast>
     </DivText>
   </TextContainer>
 )
 export const Toast = (props) => {
   const notify = () => {
-    toast(<Msg restaurantName={props.restaurantName} total={props.total} />, {
+    toast(<Msg restaurantName={props.restaurantName} total={props.totalPrice} />, {
       position: "bottom-center",
       autoClose: 5000,
       closeOnClick: true,
@@ -60,9 +60,6 @@ export const Toast = (props) => {
       progress: undefined,
     })
   }
-  //  {
-  //   
-  //   });
 
   return (
     <div>

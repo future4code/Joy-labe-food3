@@ -8,13 +8,21 @@ display:flex ;
 justify-content: space-around;
 flex-direction: column;
 padding: 5px;
+
+`
+
+
+export const ItemHistoryOrders = styled(ItemProfile)` 
+width: 100%;
+margin-left: 5px;
+
+
 `
 export const ContainerItemProfile = styled.div`
 width: 100%;
 height: 100px;
 display: flex;
 justify-content: space-around;
-align-items: center;
 &:hover {
     background-color: rgba(0,0,0,25%);
   }
@@ -37,6 +45,7 @@ margin: 10px;
 
 export const TitleRestaurant = styled.p  ` 
 color: ${primaryColor};
+font-weight: bold;
 `
 
 export const Message = styled.div ` 

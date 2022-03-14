@@ -19,9 +19,12 @@ export default function AdressPageEdit(){
         })
         .then(({data}) => {
             setForm(data.address)
-            console.log('form console', form);
         })
-        .catch(err => console.log(err))
+        .catch((err) => {
+            alert("Ops, algo deu errado! Tente novamente.")
+            console.log(err)
+
+        })
     };
     useEffect(()=>{
         getAdress()

@@ -10,6 +10,7 @@ import { ContainerSubtitle } from "../../registerPage/adressRegisterPage/styles"
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { useNavigate } from "react-router-dom";
+import HeaderLogo from "../../../components/header/HeaderLogo";
 
 
 export default function LoginPage() {
@@ -25,15 +26,16 @@ export default function LoginPage() {
 
     const onSubmitForm = (e) => {
         e.preventDefault()
-        console.log(form)
 
         axios.post(`${base_URL}login`, form)
             .then(({ data }) => {
-                setToken(data.token)            
+                setToken(data.token)
                 navigate("/HomePage")
             })
-            .catch((err) => { console.log(err) }
-        )
+            .catch((err) => {
+                alert("Ops, deu algo errado! Tente novamente!")
+                console.log(err)
+            })
     }
 
     const handleShowPassword = () => {
@@ -42,6 +44,7 @@ export default function LoginPage() {
 
     return (
         <MainContainer>
+            <HeaderLogo />
             <ContainerSubtitle>
                 <p>Entrar</p>
             </ContainerSubtitle>
@@ -81,21 +84,22 @@ export default function LoginPage() {
                             </InputAdornment>
                         )
                     }}
-                />                
+                />
                 <ContainerBtn>
                     <ButtonLogin>Entrar</ButtonLogin>
                 </ContainerBtn>
             </ContainerForm>
             <ContainerFooter>
                 <p>Não possui cadastro?</p>
-                <p><Link style={{ 
-                    color: 'inherit', 
+                <p><Link style={{
+                    color: 'inherit',
                     textDecoration: 'inherit',
                     cursor: 'pointer',
-                    fontWeight: 'bold'}} 
-                    to="/Basicregister"> 
-                        Clique aqui
-                    </Link>
+                    fontWeight: 'bold'
+                }}
+                    to="/Basicregister">
+                    Clique aqui
+                </Link>
                 </p>
             </ContainerFooter>
         </MainContainer>

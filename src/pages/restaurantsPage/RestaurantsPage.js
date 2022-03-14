@@ -30,10 +30,11 @@ export default function RestaurantsPage() {
                 }
             })
             .then((res) => setSelectedRestaurantProducts(res.data.restaurant.products))
-            .catch((err) => console.log(err.response.message))
+            .catch((err) => {
+                alert("Algo deu errado, tente novamente!")
+                console.log(err.response.message)
+            })
     }, [id])
-
-    console.log(selectedRestaurantProducts)
 
     return (
         <Main>
