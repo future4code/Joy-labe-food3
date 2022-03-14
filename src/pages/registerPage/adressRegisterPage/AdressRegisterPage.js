@@ -30,7 +30,10 @@ export default function AdressRegisterPage(){
             setToken(data.token)
             navigate("/HomePage")
         })
-        .catch(err => console.log(err.response.data));
+        .catch((err) => {
+            alert("Ops, algo eu errado! Tente novamente.")
+            console.log(err.response.data)
+        });
     };
 
     return(

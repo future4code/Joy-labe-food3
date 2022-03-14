@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as services from "../../../services/apiRequestAxios";
 import useForm from "../../../hooks/useForm";
@@ -18,6 +18,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import HeaderLogo from "../../../components/header/HeaderLogo";
 
 export default function BasicRegisterPage(){
     const { form, onChange } = useForm({
@@ -56,9 +57,7 @@ export default function BasicRegisterPage(){
     return(
         <Container>
             <ToastContainer theme={"colored"}/>
-            <Header>
-                <img alt={"Logo Snack Time"} src={logo}/>
-            </Header>
+            <HeaderLogo/>
             <ContainerForm onSubmit={register}>
                 <ContainerSubtitle>
                     <p style={{fontWeight:'bold'}}>Cadastrar</p>

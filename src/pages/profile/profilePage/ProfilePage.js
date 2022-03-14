@@ -13,8 +13,7 @@ import { CardMessage } from '../../../components/profile/CardMessage'
 
 export default function ProfilePage() {
   const [infoProfile, setInfoProfile] = useState({})
-  const [historyOrders, setHistoryOrders] = useState({})
-
+  const [historyOrders, setHistoryOrders] = useState([])
   useEffect(() => {
     const auth = getToken()
     axios.get(`${base_URL}profile`, {
@@ -25,7 +24,10 @@ export default function ProfilePage() {
       .then((res) => {
         setInfoProfile(res.data.user)
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        alert("Ops, algo deu errado! Tente novamente.")
+        console.log(err)
+      })
   }, [])
 
   useEffect(() => {
@@ -37,11 +39,25 @@ export default function ProfilePage() {
       }
     })
       .then((res) => {
-        setHistoryOrders(res.data.user)
+        setHistoryOrders(res.data.orders)
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        alert("Ops, algo deu errado! Tente novamente.")
+        console.log(err)
+      })
   }, [])
 
+  const historyOrdersList = historyOrders && historyOrders.map((order) => {
+    
+    return (
+      <CardHistoryOrders
+        key={order.id}
+        restaurantName={order.restaurantName}
+        createdAt= {order.createdAt}
+        totalPrice={order.totalPrice}
+      />
+    )
+  })
 
 
   return (
@@ -49,21 +65,31 @@ export default function ProfilePage() {
       <Header
         pageName={"Meu Perfil"}
       />
-      <MainContainerProfile>
-        <CardPersonalData
-          name={infoProfile?.name}
-          email={infoProfile?.email}
-          cpf={infoProfile?.cpf}
-        />
-        <CardAddressData
-          address={infoProfile?.address}
-        />
-        <TitleSection>Histórico de pedidos</TitleSection>
-        <ContainerHistoryOrders>
-        {historyOrders ? <CardHistoryOrders/> : <CardMessage/>}
-        </ContainerHistoryOrders>
-        <Footer />
-    </MainContainerProfile>
-  </Main>
+
+      {infoProfile ?
+        (
+          <MainContainerProfile>
+            <CardPersonalData
+              name={infoProfile?.name}
+              email={infoProfile?.email}
+              cpf={infoProfile?.cpf}
+            />
+            <CardAddressData
+              address={infoProfile?.address}
+            />
+            <TitleSection>Histórico de pedidos</TitleSection>
+            <ContainerHistoryOrders>
+              {historyOrdersList ? historyOrdersList : <CardMessage />}
+            </ContainerHistoryOrders>
+
+            <Footer />
+          </MainContainerProfile>
+        ) : (
+          <MainContainerProfile>
+            <p>carregando...</p>
+          </MainContainerProfile>
+        )
+      }
+    </Main>
   )
 }

@@ -17,3 +17,13 @@ export const HeaderContainer = styled.header`
         margin-right: 120px;
     }
 `
+export const LogoHeader = styled.header`
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+    height: 20vh;    
+
+    img{
+        width: 100%;
+    };
+`;

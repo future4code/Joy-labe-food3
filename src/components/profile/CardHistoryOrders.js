@@ -1,14 +1,17 @@
 import React from 'react'
-import {  ContainerOrderHistory, ItemProfile, TitleRestaurant } from './styles'
+import { ContainerOrderHistory, ItemHistoryOrders, TitleRestaurant } from './styles'
 
-export const CardHistoryOrders= (props) => {
+export const CardHistoryOrders = (props) => {
+
+  let dateCreate = new Date(props.createdAt)
+  dateCreate = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' }).format(dateCreate)
   return (
     <ContainerOrderHistory>
-      <ItemProfile>
-        <TitleRestaurant>Nome Restaurante</TitleRestaurant>
-        <p>Data do pedido</p>
-        <p>SUBTOTAL r$ 45,00</p>
-      </ItemProfile>
+      <ItemHistoryOrders>
+        <TitleRestaurant>{props.restaurantName}</TitleRestaurant>
+        <p> {dateCreate}</p>
+        <p style={{ fontWeight: 'bold' }} >SUBTOAL R$ {props.totalPrice},00</p>
+      </ItemHistoryOrders>
 
     </ContainerOrderHistory>
 

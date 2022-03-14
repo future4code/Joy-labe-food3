@@ -8,6 +8,7 @@ import { TextField } from "@material-ui/core";
 import axios from "axios";
 import { base_URL } from "../../constants/URL"
 import { SelectBar } from "../../components/SelectBar/SelectBar";
+import { EmojiTransportationOutlined } from "@material-ui/icons";
 
 
 export default function HomePage(props) { // declarando variaveis de estado 
@@ -55,7 +56,10 @@ export default function HomePage(props) { // declarando variaveis de estado
                     const categoriasResponse = restaurantesResponse.map((restaurant) => restaurant.category).sort()
                     setCategorias([...new Set(categoriasResponse)])
                 })
-                .catch((err) => console.log(err.data))
+                .catch((err) => {
+                    alert('Ops, deu algo errado, tente novamente!')
+                    console.log(err)
+                })
         }
 
     useEffect(() => {

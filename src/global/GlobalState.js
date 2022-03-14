@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { base_URL } from "../constants/URL"
 import GlobalStateContext from "./GlobalStateContext"
+import { getToken } from "../helpers/localStorage";
 
 export const GlobalState = (props) => {
 
@@ -27,9 +28,8 @@ export const GlobalState = (props) => {
         }));
       };
     
-    // console.log(restaurantes);
     const getRestaurants = () => {
-        const auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJjQXBxSzVCY3ZlVWxodzNBdWhhIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldnRlc3RlQGZ1dHVyZTQuY29tIiwiY3BmIjoiMTExLjExMS4yMjItMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXp6eiwgMTc3OCwgNzExIC0gVmlsYSBOLiBDb25jZWnDp8Ojb28iLCJpYXQiOjE2NDUxMTgwODN9.J2c7hQS-Al-e7aEwm4gmpFXm1tf10EvNIsEhYuW-2pI"
+        const auth = getToken()
         axios
             .get(`${base_URL}restaurants`, {
                 headers: {
@@ -52,9 +52,8 @@ export const GlobalState = (props) => {
                 
                 setRestaurantes(filterListRestaurant)
             })
-            .catch((err) => console.log(err.data))
+            .catch((err) => alert("Algo deu errado, tente novamente!"))
     }
-    // console.log(restaurantes);
 
     useEffect(() => {
         if (!restaurantes.length) {
