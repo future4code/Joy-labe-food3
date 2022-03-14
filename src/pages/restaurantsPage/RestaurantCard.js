@@ -10,14 +10,14 @@ import Button from "@material-ui/core/Button";
 
 export const RestaurantCard = (props) => {
 
-    const { cart, setCart, addToCart } = useContext(GlobalStateContext);
+    const { cart, setCart, addToCart, cartItems, setCartItems, onAdd } = useContext(GlobalStateContext);
 
 
     //váriavel com o estado do botão
     const [open, setOpen] = useState(false)
 
     //função que muda o estado para true e abre
-    const handleClickOpen = () => {
+    const handleClickOpen = (product) => {
         setOpen(true)
     }
     
@@ -25,6 +25,8 @@ export const RestaurantCard = (props) => {
     const handleClose = () => {
         setOpen(false)
     }
+
+    
 
     return (
         <Card>
@@ -39,9 +41,11 @@ export const RestaurantCard = (props) => {
                 
                 <div>{props.description}</div>
                 <Price>
-                    <h6>R${props.price}0</h6>   
-                    <button onClick={handleClickOpen}>Adicionar</button> 
-
+                    <h6>R$ {props.price}0</h6>   
+                    <button onClick={handleClickOpen}
+                        handler={props.handler}
+                    >{props.handler ? "Remover" : "Adicionar"}</button> 
+                    
                     {/* configurações da caixa de dialogo */}
                     <Dialog
                         open={open}
@@ -71,8 +75,8 @@ export const RestaurantCard = (props) => {
                             </FormControl>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={()=> addToCart(
-                                props.id,
+                            <Button onClick={()=> onAdd(
+                                // props.id,
                                 props.product
                             )} color="primary">
                                 Adicionar Ao Carrinho

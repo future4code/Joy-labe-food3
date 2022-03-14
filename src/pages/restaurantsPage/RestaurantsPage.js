@@ -37,8 +37,9 @@ export default function RestaurantsPage() {
             .then((res) => setSelectedRestaurantProducts(res.data.restaurant.products))
             .catch((err) => console.log(err.response.message))
     }, [])
-
-    console.log(selectedRestaurantProducts)
+    console.log( selectedRestaurantProducts)
+    console.log(` TESTE: ${id}`)
+    
 
     return (
         <Main>
@@ -50,7 +51,10 @@ export default function RestaurantsPage() {
 
                 {restaurantes && restaurantes.map((restaurante) => {
                     if (id === restaurante.id) {
-                        return <RestaurantInfo key={restaurante.id}>
+                        return <RestaurantInfo key={restaurante.id}
+                                    id={restaurante.id}
+                                    restaurante={restaurante}
+                                >
                             <img src={restaurante.logoUrl} alt="imagem restaurante" />
                             <h1 className="greenTitle">{restaurante.name}</h1>
                             <p>{restaurante.category}</p>
@@ -62,7 +66,7 @@ export default function RestaurantsPage() {
                         </RestaurantInfo>
                     }
                 })}
-
+                
                 {/* tudo que não for bebida e acompanhamento entra aqui :) */}
                 <h3>Principais</h3>
                 {selectedRestaurantProducts && selectedRestaurantProducts.map((product) => {
@@ -73,7 +77,7 @@ export default function RestaurantsPage() {
                             product={product}
                             description={product.description}
                             photo={product.photoUrl}
-                            price={product.price} />
+                            price={product.price.toFixed(1)} />
                     }
                 })}
 
@@ -87,7 +91,7 @@ export default function RestaurantsPage() {
                             product={product}
                             description={product.description}
                             photo={product.photoUrl}
-                            price={product.price} />
+                            price={product.price.toFixed(1)} />
                     }
                 })}
 
@@ -101,7 +105,7 @@ export default function RestaurantsPage() {
                             product={product}
                             description={product.description}
                             photo={product.photoUrl}
-                            price={product.price} />
+                            price={product.price.toFixed(1)} />
                     }
                 })}
 
