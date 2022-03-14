@@ -26,7 +26,7 @@ App de  pedido delivery; </p>
 </BR>
 </BR>
  
-<center> <strong> TIME </strong> </center> 
+<div align = "center"> <strong> TIME </strong> </div> 
 </BR>
   <div align = "center">
 
@@ -43,7 +43,7 @@ App de  pedido delivery; </p>
 
 ## 📃 Descrição
 
-É  um app  de serviço  delivery de refeições para smartphones e IOS. Ele permite que o usuário peça os seus pratos preferidos sem ter que ligar diretamente para os restaurantes,  e sem deixar o conforto de seu lar; A  plataforma do SnackTime foi desenvolvida para potencializar e facilitar a ação dos pedidos delivery. Oferecendo as informações e ações necessárias aos usuários  dentro de uma interface prática, segura, funcional e intuitiva;  
+App  de serviço  delivery de refeições para smartphones e IOS. Desenvolvido para potencializar e facilitar a ação dos pedidos delivery, oferecendo todo o suporte aos seus usuários, dentro de uma interface prática, segura, funcional e intuitiva;  
 </br>
 </br>
 
@@ -75,49 +75,120 @@ App de  pedido delivery; </p>
 
 </br>
 </br>
+ 
+
 
 ## 🖋 Funcionalidade
 </br>
 </br>
 
-1. SplashScreen : Tela de abertura da aplicativo
+    1. SplashScreen : Tela de abertura da aplicativo 
+</br>
+</br>
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158091724-d88757f8-ee16-4087-8080-1f7f7960c5a2.png"  width="150" height="280" />
+</div>
+</br>
 
+     2. Tela de Login/Cadastro
+</br>
+</br>
 
-2. Tela de Login/Cadastro:
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158092050-edc64105-de15-4b75-a932-2afb47bab425.png"  width="150" height="280" />
+</div>
+</br>
+</br>
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158096425-79975dad-7551-411a-b3e9-920dbb4ce94e.png"  width="150" height="280" />
+</div>
+</br>
+</br>
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158096609-37c217fe-6f48-4f44-95e5-6c2f03022c77.png"  width="150" height="280" />
+</div>
+</br>
+</br>
+            - Depois da tela de abertura, o usuário é direcionado para esta página de cadastro e após a finalização ele é redirecionado  para a tela de restaurantes.
 
-        - Ao acessar o app o usuário é direcionado para esta página de cadastro,  após finalização ele
-        é redirecionado  para a tela de lista de restaurantes.
+ </br>
+ </br>
     
 
 
-3. Tela de Restaurantes;
+     3. Tela de Restaurantes
+     
+</br>
+</br>
 
-         - A visualização inicial é de uma lista dos restaurantes fornecidas por requisições na API. 
-         Para auxiliar na busca e seleção do restaurante de interesse a página conta com atalhos de 
-         busca por nome e categorias; ao clicar no card do estabelecimento escolhido o usuário é 
-         direcionado para uma nova tela que mostra  os detalhes do cardápio;
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158093268-a7b266a9-043f-4301-bddb-e5cbbbcca593.png"  width="150" height="280" />
+</div>
+</br>
+</br>
 
-4. Tela de cardápio do restaurante
-   
+-A visualização inicial é de uma lista dos restaurantes fornecidas por requisições na API. 
+Para auxiliar na busca e seleção do restaurante de interesse a página conta com atalhos de 
+busca por nome e categorias. Ao clicar no card do estabelecimento escolhido o usuário é 
+encaminhado para uma nova tela que mostra  os detalhes do cardápio;
+</br>
+</br>
 
-        - Nesta tela o usuário tem acesso as informações do estabelecimento, dos tipos de pratos
-        fornecidos, além de ser capaz de adicionar o prato de interesse e sua quantidade  no 
-        carrinho; 
+       4. Tela de cardápio do restaurante
+</br>
+</br>
+
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158094247-4cef36c8-e069-47e9-9d6b-130f6913f095.png"  width="150" height="280" />
+</div>
+</br>
+</br>
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158095195-601f8c29-b863-44a8-b021-f50fc73bc7f3.png"  width="150" height="280" />
+</div>
+</br>
+</br>
 
 
-5. Carrinho de compras;
+ -Nesta tela o usuário tem acesso as informações do estabelecimento e dos tipos de pratos
+fornecidos por estes divididos por categoria; além de poder adicionar o prato de interesse e sua quantidade  no 
+carrinho; 
+</br>
+</br>
 
-        - Ao acessar esta funcionalidade, o usuário é capaz de visualizar a lista de itens que 
-        adicionou ao carrinho, o endereço de entrega,  preço total da compra e as formas de pagamento. 
-        Ele também  pode  selecionar as funções  de remover item e de  fazer o pedido. Ao final de tudo,
-        o usuário da plataforma tem  confirmação de que o pedido está em andamento através de um banner 
+       5. Carrinho de compras
+</br>
+</br>
+
+-Ao acessar esta funcionalidade, o usuário é capaz de visualizar a lista de itens que 
+        adicionou ao carrinho, o endereço de entrega, preço total da compra e as formas de pagamento. 
+        Ele também  tem acesso as funções  de remover item e de  fazer o pedido. Ao final de tudo,
+        o usuário da plataforma tem a confirmação de que o pedido está em andamento através de um banner 
         informativo;
  
+ </br>
+</br>
 
 
-6. Tela  de perfil , edição do perfil e histórico de pedidos;
+    6. Tela  de perfil, edição do perfil e histórico de pedidos
 
-       - Permite  que os usuários visualize e edite seus dados cadastrados. e tenha acesso aos seus 
+
+
+</br>
+</br>
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158095964-d71c73c6-910f-4f1c-a370-a635d8ae1a69.png"  width="150" height="280" />
+</div>
+</br>
+</br>
+
+<div align = "center"> 
+<img src="https://user-images.githubusercontent.com/31759644/158095875-67224ee6-8723-408f-9962-51eccd5f11a2.png"  width="150" height="280" />
+</div>
+</br>
+</br>
+
+-Permite  que os usuários visualizem e editem seus dados cadastrados. E possa ter acesso aos seus 
        históricos de pedidos concluídos;
 
 
