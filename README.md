@@ -92,23 +92,33 @@ App de  pedido delivery; </p>
 
 3. Tela de Restaurantes;
 
-         - A visualização inicial é de uma lista dos restaurantes fornecidas por requisições na API. Para auxiliar na busca e seleção do restaurante de interesse a página conta com atalhos de busca por nome e categorias; ao clicar no card do estabelecimento escolhido o usuário é direcionado para uma nova tela que mostra  os detalhes do cardápio;
+         - A visualização inicial é de uma lista dos restaurantes fornecidas por requisições na API. 
+         Para auxiliar na busca e seleção do restaurante de interesse a página conta com atalhos de 
+         busca por nome e categorias; ao clicar no card do estabelecimento escolhido o usuário é 
+         direcionado para uma nova tela que mostra  os detalhes do cardápio;
 
 4. Tela de cardápio do restaurante
    
 
-        - Nesta tela o usuário tem acesso as informações do estabelecimento, dos tipos de pratos fornecidos, além de ser capaz de adicionar o prato de interesse e sua quantidade  no carrinho; 
+        - Nesta tela o usuário tem acesso as informações do estabelecimento, dos tipos de pratos
+        fornecidos, além de ser capaz de adicionar o prato de interesse e sua quantidade  no 
+        carrinho; 
 
 
 5. Carrinho de compras;
 
-        - Ao acessar esta funcionalidade, o usuário é capaz de visualizar a lista de itens que adicionou ao carrinho, o endereço de entrega,  preço total da compra e as formas de pagamento. Ele também  pode  selecionar as funções  de remover item e de  fazer o pedido. Ao final de tudo, o usuário da plataforma tem  confirmação de que o pedido está em andamento através de um banner informativo;
+        - Ao acessar esta funcionalidade, o usuário é capaz de visualizar a lista de itens que 
+        adicionou ao carrinho, o endereço de entrega,  preço total da compra e as formas de pagamento. 
+        Ele também  pode  selecionar as funções  de remover item e de  fazer o pedido. Ao final de tudo,
+        o usuário da plataforma tem  confirmação de que o pedido está em andamento através de um banner 
+        informativo;
  
 
 
 6. Tela  de perfil , edição do perfil e histórico de pedidos;
 
-       - Permite  que os usuários visualize e edite seus dados cadastrados. e tenha acesso aos seus históricos de pedidos concluídos;
+       - Permite  que os usuários visualize e edite seus dados cadastrados. e tenha acesso aos seus 
+       históricos de pedidos concluídos;
 
 
        
