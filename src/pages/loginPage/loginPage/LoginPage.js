@@ -90,15 +90,16 @@ export default function LoginPage() {
                 </ContainerBtn>
             </ContainerForm>
             <ContainerFooter>
-                <p>Não possui cadastro?</p>
+                <p>Não possui cadastro? </p>
                 <p><Link style={{
                     color: 'inherit',
                     textDecoration: 'inherit',
                     cursor: 'pointer',
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    marginLeft:'5px'
                 }}
                     to="/Basicregister">
-                    Clique aqui
+                     Clique aqui
                 </Link>
                 </p>
             </ContainerFooter>
