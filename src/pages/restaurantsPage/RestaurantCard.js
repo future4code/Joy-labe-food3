@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 
 export const RestaurantCard = (props) => {
 
-    const { cart, setCart, addToCart } = useContext(GlobalStateContext);
+    const { cart, setCart, addToCart, onAdd } = useContext(GlobalStateContext);
 
 
     //váriavel com o estado do botão
@@ -39,7 +39,7 @@ export const RestaurantCard = (props) => {
                 
                 <div>{props.description}</div>
                 <Price>
-                    <h6>R${props.price}0</h6>   
+                    <h6>R$ {props.price}0</h6>   
                     <button onClick={handleClickOpen}>Adicionar</button> 
 
                     {/* configurações da caixa de dialogo */}
@@ -71,7 +71,7 @@ export const RestaurantCard = (props) => {
                             </FormControl>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={addToCart} color="primary">
+                            <Button onClick={()=> onAdd(props.product)} color="primary">
                                 Adicionar Ao Carrinho
                             </Button>
                         </DialogActions>

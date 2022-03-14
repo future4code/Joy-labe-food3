@@ -65,6 +65,8 @@ export default function RestaurantsPage() {
                     if (product.category !== "Bebida" && product.category !== "Acompanhamento") {
                         return <RestaurantCard key={product.id}
                             name={product.name}
+                            id={product.id}
+                            product={product}
                             description={product.description}
                             photo={product.photoUrl}
                             price={product.price} />
@@ -77,6 +79,8 @@ export default function RestaurantsPage() {
                     if (product.category === "Acompanhamento") {
                         return <RestaurantCard key={product.id}
                             name={product.name}
+                            id={product.id}
+                            product={product}
                             description={product.description}
                             photo={product.photoUrl}
                             price={product.price} />
@@ -89,6 +93,8 @@ export default function RestaurantsPage() {
                     if (product.category === "Bebida") {
                         return <RestaurantCard key={product.id}
                             name={product.name}
+                            id={product.id}
+                            product={product}
                             description={product.description}
                             photo={product.photoUrl}
                             price={product.price} />

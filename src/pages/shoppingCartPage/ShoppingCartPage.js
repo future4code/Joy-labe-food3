@@ -5,22 +5,46 @@ import axios from "axios";
 import { base_URL } from "../../constants/URL"
 import { useParams } from "react-router-dom";
 import GlobalStateContext from "../../global/GlobalStateContext";
-import styled from "./styles";
+import {EmptyCart, Container, BtnCart, TotalPrice, SubTotal, Profile, ContainerProfile, Label} from "./styles";
 import { RestaurantCard } from "../restaurantsPage/RestaurantCard";
 import { Card, RestaurantInfo } from "../restaurantsPage/styles";
+import { getToken } from "../../helpers/localStorage";
+import { setToken } from "../../helpers/localStorage";
+import { CardPersonalData } from "../../components/profile/CardPersonalData";
+import { CardAddressData } from "../../components/profile/CardAddressData";
+import { ContainerItemProfile, ItemProfile } from "../../components/profile/styles";
+
 
 export default function ShoppingCartPage(props){
-    const { states} = useContext(GlobalStateContext);
+    const { states, onAdd} = useContext(GlobalStateContext);
     const { restaurantes, restaurantDetail } = states;
+    const [selectedRestaurantProducts, setSelectedRestaurantProducts] = useState([]);
+    const [infoProfile, setInfoProfile] = useState({})
+
 
     const { cartItems, cart} = useContext(GlobalStateContext);
     const { id } = useParams();
 
-    const totalPrice = cartItems?.reduce((a, c) => a + c.price * c.qty, 0);
-    // console.log("SUBTOTAL:", Number.totalPrice)
-    // console.log("TIPO:", typeof(totalPrice), totalPrice)
-    console.log("CARRINHO:", cart)
-  
+    const totalPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+
+    
+
+    useEffect(() => {
+        const auth = getToken()
+        axios.get(`${base_URL}profile`, {
+          headers: {
+            auth: auth
+          }
+        })
+          .then((res) => {
+            setInfoProfile(res.data.user)
+          })
+          .catch((err) => console.log(err))
+      }, [])
+    
+    
+
+      console.log("CARRINHO:", cartItems)
     return(
         <div>
             <Header
@@ -29,32 +53,72 @@ export default function ShoppingCartPage(props){
             <br/>
             <br/>
             <br/>
-            <p>{cart.products?.length === 0 && <div> Carrinho vazio </div>}</p>
-            <h3>Endereço de entrega</h3>
+            <ContainerProfile>
+                <Profile>
+                <p>Endereço de entrega</p>
+                <p>{infoProfile?.address}</p>
+                </Profile>
+            </ContainerProfile>
+            <Container>
+                {cartItems.length === 0 && <p> Carrinho vazio </p>
+
+                }
+            </Container>
             
 
-            {cart.products?.map((product) => (
-            <> 
+            {/* TESTE */}
+            <RestaurantInfo key={props.id}
+                                    id={props.id}
+                                    name={props.name}
+                                    delivery={props.deliveryTime}
+                                    shipping={props.shipping}
+                                >
+                        
+                            <h1 className="greenTitle">{props.name}</h1>
+                            <div>
+                                <p>{props.deliveryTime} min</p>
+                                <p className="space">Frete R$ {props.shipping},00</p>
+                            </div>
+                            <p>{props.address}</p>
+                        </RestaurantInfo>
+
+
+            {/*  */}
+            {cartItems.map((product) => (
+            <>
+                
                 <RestaurantCard key={product.id} 
                             name={product.name}
                             description={product.description}
                             photo={product.photoUrl}
-                            price={Number(product.price)}/>
+                            handler={product.handler = "Remover" }
+                            price={Number(product.price).toFixed(1)}
+                            />
+                            
                 
-                {/* <div>
-                    <p>
-                        quantidade:
-                        {product.qty} 
-                    </p>
-                </div> */}
                 
             </>
             ))}
 
+            
+
             <>
+                <p>Forma de pagamento</p>
                 <hr></hr>
-                <div>SubTotal</div>
-                <div>R$ {totalPrice}  </div>
+                <div>
+                    <input type="radio" id="dinheiro" name="drone" value="dinheiro"
+                            checked/>
+                    <Label for="dinheiro">Dinheiro</Label>
+                </div>
+
+                    <div>
+                    <input type="radio" id="cartao" name="drone" value="cartao"/>
+                    <Label for="cartao">Cartão de crédito</Label>
+                    </div>
+
+                <SubTotal>SubTotal</SubTotal>
+                <TotalPrice>R$ {totalPrice.toFixed(1)}  </TotalPrice>
+                <BtnCart>Confirmar</BtnCart>
             </>
             <Footer/>
         </div>
