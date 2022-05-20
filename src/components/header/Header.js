@@ -3,7 +3,6 @@ import {HeaderContainer} from './styles'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useNavigate } from 'react-router-dom';
 
-
 export default function Header({pageName})  {
     const navigate = useNavigate()
     return (

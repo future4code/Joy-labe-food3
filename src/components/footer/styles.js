@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const ContainerFooter = styled.footer `
     height: 8vh;
     border-top: 1px solid rgba(0, 0, 0, 25%);

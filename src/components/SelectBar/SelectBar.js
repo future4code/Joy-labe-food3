@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TabItem, TabsContainer } from "./styles";
 
+
 export const SelectBar = ({list, action}) => {
 
     const [selectedItem, setSelectedItem] = useState()

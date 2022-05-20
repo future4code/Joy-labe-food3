@@ -5,6 +5,7 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import { Link } from 'react-router-dom';
 
+
 export const Footer = () => {
   return (
     <ContainerFooter>

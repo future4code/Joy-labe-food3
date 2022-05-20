@@ -9,6 +9,7 @@ overflow: hidden;
 overflow-x: scroll;
 height: 50px;
 `
+
 export const ItemCategory = styled.div`
 ${props => props.selected && 'color: green;'}
 margin: 5px;

@@ -10,6 +10,7 @@ export default createGlobalStyle`
     font-size: 16px;
   };
 
+  
   .text-link {
     color: inherit;
     text-decoration: inherit;
